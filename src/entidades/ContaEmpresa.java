@@ -14,13 +14,11 @@ public class ContaEmpresa extends Conta{
 		return emprestimo;
 	}
 
-	public void setEmprestimo(Double emprestimo) {
-		this.emprestimo = emprestimo;
-	}
+
 	
 	//empresta dinheiro
 	public void emp(double quantidade) {
-		emprestimo = saldo - quantidade;
+		this.emprestimo = saldo - quantidade;
 	}
 	
 	// status da conta
@@ -39,6 +37,6 @@ public class ContaEmpresa extends Conta{
 				"\nSaldo da conta R$:"+saldo+
 				"\nStatus da conta :"+status+
 				"\n"+
-				"\nEmprestimo :R$"+ emprestimo ;
+				"\nEmprestimo :R$"+ saldo ;
 	}
 }
