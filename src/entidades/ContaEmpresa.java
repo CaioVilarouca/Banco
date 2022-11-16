@@ -20,11 +20,16 @@ public class ContaEmpresa extends Conta{
 	
 	//empresta dinheiro
 	public void emp(double quantidade) {
-		saldo -= quantidade;
+		saldo -= quantidade -10.0;
 	}
 	
 	@Override
 	public String toString() {
-		return "";
+		return "Usuário da conta :" +name+
+				"\nNúmero da conta :#"+number+
+				"\nSaldo da conta R$:"+saldo+
+				"\nStatus da conta :"+status+
+				"\n"+
+				"\nEmprestimo :R$"+ emprestimo + "com taxa de 10 reis";
 	}
 }

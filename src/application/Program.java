@@ -68,6 +68,7 @@ public class Program {
 			emp = emp == 'N' ? 'n':emp;
 			
 			System.out.println();
+			// Emprestimo herança
 			if(emp == 's') {
 				System.out.println("Quanto você quer emprestar ? ");
 				emprestimo = scanner.nextDouble();
@@ -79,34 +80,23 @@ public class Program {
 			
 			ContaEmpresa contaEmpresa = new ContaEmpresa(name, number, saldo, emprestimo);
 			contaEmpresa.deposit(saldo);
+			if(emp =='s') {
+				contaEmpresa.emp(emprestimo);
+			}
 			contaEmpresa.statusConta(status = true);
-			contaEmpresa.emp(emprestimo);
+			System.out.println(contaEmpresa);
 			
 			break;
 		case 'e':
 			System.out.println("Programa fechado!");
+			Conta nulo = new Conta();
+			System.out.println(nulo);
+
 			break;
 		default:
 			System.out.println("ERRO, tente novamente mais tarde.");
 		}
 		
-		
-		
-		/*tipo-poupança ou corrente
-
-		 * 
-		 * Classe
-		 * 	NumberConta-public
-		 * 	dono
-		 * 	saldo
-		 * 	status
-		 * 
-		 * Metodos
-		 * 	abrirConta-boolean-30P-50C
-		 * 	FechaConta-não pode fecha com dinheiro na conta
-		 * 	Deposit
-		 * 	Sacar
-		 * 	PagarMensal-12.5P-50C*/
 	}
 	//Caio Vilarouca
 }

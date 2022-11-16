@@ -2,9 +2,9 @@ package entidades;
 
 public class Conta {
 	public String name;
-	private Integer number;
+	protected Integer number;
 	protected Double saldo;
-	private Boolean status;
+	protected Boolean status;
 	
 	public Conta() {
 		super();
@@ -55,11 +55,7 @@ public class Conta {
 		saldo += quantidade;
 	}
 	
-	// Retirada
-	public void retirada(double quantidade) {
-		saldo += quantidade - 5.0;
-	}
-	
+
 	@Override
 	public String toString() {
 		return "Usuário da conta :" +name+
