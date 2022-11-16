@@ -3,9 +3,11 @@ package application;
 public class Program {
 
 	public static void main(String[] args) {
-		/*Classe
+		/*tipo-poupança ou corrente
+
+		 * 
+		 * Classe
 		 * 	NumberConta-public
-		 * 	tipo-poupança ou corrente
 		 * 	dono
 		 * 	saldo
 		 * 	status
