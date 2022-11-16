@@ -61,7 +61,8 @@ public class Program {
 			number = scanner.nextInt();
 			System.out.print("Deposita       R$:");
 			saldo = scanner.nextDouble();
-			
+			System.out.println("-----------------");
+					
 			System.out.print("Quer empresta dinheiro S|N ?");
 			emp = scanner.next().charAt(0);
 			emp = emp == 'S' ? 's':emp;
@@ -77,7 +78,7 @@ public class Program {
 			}else {
 				System.out.println("ERRO, tente novamente mais tarde !");
 			}
-			
+	
 			ContaEmpresa contaEmpresa = new ContaEmpresa(name, number, saldo, emprestimo);
 			contaEmpresa.deposit(saldo);
 			if(emp =='s') {

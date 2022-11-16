@@ -20,7 +20,16 @@ public class ContaEmpresa extends Conta{
 	
 	//empresta dinheiro
 	public void emp(double quantidade) {
-		saldo -= quantidade -10.0;
+		emprestimo = saldo - quantidade;
+	}
+	
+	// status da conta
+	public void statusSaldo() {
+		if(saldo > 0) {
+			System.out.println("Status da sua conta esta POSITIVO é " + saldo);
+		}else {
+			System.out.println("Status da sua conta esta NEGATIVO é " + saldo);
+		}
 	}
 	
 	@Override
@@ -30,6 +39,6 @@ public class ContaEmpresa extends Conta{
 				"\nSaldo da conta R$:"+saldo+
 				"\nStatus da conta :"+status+
 				"\n"+
-				"\nEmprestimo :R$"+ emprestimo + "com taxa de 10 reis";
+				"\nEmprestimo :R$"+ emprestimo ;
 	}
 }

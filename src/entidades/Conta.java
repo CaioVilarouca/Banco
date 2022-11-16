@@ -1,10 +1,10 @@
 package entidades;
 
 public class Conta {
-	public String name;
-	protected Integer number;
-	protected Double saldo;
-	protected Boolean status;
+	public String name = "Nome";
+	protected Integer number = 0;
+	protected Double saldo = 0.0; 
+	protected Boolean status = false;
 	
 	public Conta() {
 		super();
