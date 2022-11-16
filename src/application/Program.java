@@ -46,12 +46,21 @@ public class Program {
 			conta.deposit(saldo);
 			conta.statusConta(status = true);
 			
-			
 			System.out.println();
 			System.out.println(conta);
+			
 			break;
 		case 'b':
 			System.out.println("Abrindo conta empresarial.");
+			System.out.println();
+			
+			System.out.print("Nome do usuário :");
+			name = scanner.next();
+			System.out.print("Número da conta :#");
+			number = scanner.nextInt();
+			System.out.print("Deposita       R$:");
+			saldo = scanner.nextDouble();
+			
 			break;
 		case 'e':
 			System.out.println("Programa fechado!");
