@@ -3,7 +3,7 @@ package entidades;
 public class Conta {
 	public String name;
 	private Integer number;
-	private Double saldo;
+	protected Double saldo;
 	private Boolean status;
 	
 	public Conta() {
