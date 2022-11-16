@@ -1,6 +1,8 @@
 package application;
 import java.util.Locale;
 import java.util.Scanner;
+
+import entidades.Conta;
 public class Program {
 
 	public static void main(String[] args) {
@@ -8,9 +10,10 @@ public class Program {
 		Scanner scanner = new Scanner(System.in);
 		// Var locais 
 		char menu;
+		String name;
 		Integer number;
 		Double saldo;
-		Boolean status;
+		Boolean status = false;
 	
 		System.out.print("*-*-*-*-*-*-*- BANCO -*-*-*-*-*-*-*\n"
 				+ ""
@@ -28,9 +31,24 @@ public class Program {
 
 		switch (menu){
 		case 'a':
+			
 			System.out.println("Abrindo conta comum.");
+			System.out.println();
+			
+			System.out.print("Nome do usuário :");
+			name = scanner.next();
+			System.out.print("Número da conta :#");
+			number = scanner.nextInt();
+			System.out.print("Deposita       R$:");
+			saldo = scanner.nextDouble();
+			
+			Conta conta = new Conta(name, number, saldo);
+			conta.deposit(saldo);
+			conta.statusConta(status = true);
 			
 			
+			System.out.println();
+			System.out.println(conta);
 			break;
 		case 'b':
 			System.out.println("Abrindo conta empresarial.");
@@ -41,7 +59,8 @@ public class Program {
 		default:
 			System.out.println("ERRO, tente novamente mais tarde.");
 		}
-		System.out.println("Obrigado e volte sempre.");
+		
+		
 		/*tipo-poupança ou corrente
 
 		 * 
