@@ -11,6 +11,7 @@ public class Program {
 		
 		char menu;
 		
+		// Hud 
 		System.out.print("\n"
 				+ "│*-*-*-*-*-*-*-BANCO-*-*-*-*-*-*-*│\n"
 				+ "│---------------------------------│\n"
@@ -19,51 +20,21 @@ public class Program {
 				+ "│[E] Fecha o aplicativo...........│\n"
 				+ "│---------------------------------│\n"
 				+ "│Opção :");
-
 		menu = scanner.next().charAt(0);
 		System.out.println();
 		if(menu == 'a' || menu == 'A') {
-			System.out.println("Abrindo conta comum");
+			System.out.println("        Abrindo conta comum        ");
 			
 		}else if(menu == 'b' || menu == 'B') {
-			System.out.println("Abrindo conta para empresa");
+			System.out.println("     Abrindo conta para empresa    ");
+
 			
 		}else if(menu == 'e' || menu == 'E') {
-			System.out.println("Programa encerrado .Volte sempre!");
+			System.out.println(" Programa encerrado .Volte sempre! ");
 		}else {
-			System.out.println("Erro 404, tente novamente mais tarde.");
+			System.out.println("ERRO 404, tente novamente mais tarde.");
 		}
-		
-		// Cliente 
-		/*name
-		 *cpf
-		 *nasc
-		 *renda miníma*/
-		
-		// Conta comum
-		/*number
-		 *saldo atual
-		 *status de conta - boolean
-		 *-----------------
-		 *retirada com limite e juros 3.5 reais
-		 *Status de conta()
-		 *deposit()
-		 *retirada()*/
-		
-		// Conta empresa
-		/*number
-		 *saldo atual
-		 *status de conta - boolean 
-		 *emprestimo
-		 *-----------------
-		 *retirada sem limite e juros 5 reais
-		 *Status de conta()
-		 *deposit()
-		 *retirada()
-		 *emp emprestimo so pode acontecer se valor pedido for 
-		 *25 do valor na conta*/
-		
-		// Painel de Menu de cadastra
+		scanner.close();
 	}
 	// Caio Vilarouca
 }
