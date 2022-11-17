@@ -14,13 +14,25 @@ public class Program {
 		/*number
 		 *saldo atual
 		 *deposit
-		 *retirada com limite e juros 3.5 reais*/
+		 *status de conta - boolean
+		 *retirada com limite e juros 3.5 reais
+		 *-----------------
+		 *Status de conta()
+		 *deposit()
+		 *retirada()*/
 		
 		// Conta empresa
 		/*number
 		 *saldo atual
+		 *status de conta - boolean 
 		 *deposit
-		 *retirada sem limite e juros 5 reais*/
+		 *retirada sem limite e juros 5 reais
+		 *-----------------
+		 *Status de conta()
+		 *deposit()
+		 *retirada()*/
+		
+		// Painel de Menu de cadastra
 	}
-
+	// Caio Vilarouca
 }
