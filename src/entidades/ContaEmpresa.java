@@ -14,5 +14,9 @@ public class ContaEmpresa extends ContaComum{
 
 	public void setEmprestar(Double emprestar) {
 		this.emprestar = emprestar;
-	}	
+	}
+	
+	public void retirada(double saldo) {
+		this.saldo = saldo - 5.0f;
+	}
 }

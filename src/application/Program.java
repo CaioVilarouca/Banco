@@ -12,10 +12,9 @@ public class Program {
 		// Conta comum
 		/*number
 		 *saldo atual
-		 *deposit
 		 *status de conta - boolean
-		 *retirada com limite e juros 3.5 reais
 		 *-----------------
+		 *retirada com limite e juros 3.5 reais
 		 *Status de conta()
 		 *deposit()
 		 *retirada()*/
@@ -24,12 +23,14 @@ public class Program {
 		/*number
 		 *saldo atual
 		 *status de conta - boolean 
-		 *deposit
-		 *retirada sem limite e juros 5 reais
+		 *emprestimo
 		 *-----------------
+		 *retirada sem limite e juros 5 reais
 		 *Status de conta()
 		 *deposit()
-		 *retirada()*/
+		 *retirada()
+		 *emp emprestimo so pode acontecer se valor pedido for 
+		 *25 do valor na conta*/
 		
 		// Painel de Menu de cadastra
 	}
