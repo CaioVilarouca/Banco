@@ -4,8 +4,7 @@ public class Program {
 
 	public static void main(String[] args) {
 		// Cliente 
-		/*ID
-		 *name
+		/*name
 		 *cpf
 		 *nasc
 		 *renda miníma*/
