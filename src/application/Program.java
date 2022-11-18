@@ -3,15 +3,22 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
+import entidades.Cliente;
+import entidades.ContaComum;
+
 public class Program {
 
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
-		
+				
 		char menu;
-		
-		// Hud 
+		String name;
+		long cpf;
+		int nasc;
+		double renda;
+				
+		// Hud OBS: Esse hud era para ser  swing
 		System.out.print("\n"
 				+ "│*-*-*-*-*-*-*-BANCO-*-*-*-*-*-*-*│\n"
 				+ "│---------------------------------│\n"
@@ -23,8 +30,21 @@ public class Program {
 		menu = scanner.next().charAt(0);
 		System.out.println();
 		if(menu == 'a' || menu == 'A') {
-			System.out.println("        Abrindo conta comum        ");
-			
+			// Cleinte 
+			System.out.println("              Abrindo conta comum             ");
+			System.out.println("│--------------------------------------------│");		
+				System.out.print("	Nome completo :");
+				name = scanner.nextLine();
+				scanner.nextLine();
+				System.out.print("	CPF :");
+				cpf = scanner.nextLong();
+				System.out.print("	Data de nascimento :");
+				nasc = scanner.nextInt();
+				System.out.print("	Sua renda atual R$");
+				renda = scanner.nextDouble();
+				Cliente cliente = new Cliente(name, cpf, nasc, renda);
+			System.out.println("│--------------------------------------------│");
+		
 		}else if(menu == 'b' || menu == 'B') {
 			System.out.println("     Abrindo conta para empresa    ");
 

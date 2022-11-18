@@ -3,11 +3,11 @@ package entidades;
 public class Cliente {
 	
 	protected String name;
-	protected Integer cpf;
+	protected Long cpf;
 	protected Integer nasc;
 	protected Double renda;// Renda miníma
 	
-	public Cliente(String name, Integer cpf, Integer nasc, Double renda) {
+	public Cliente(String name, Long cpf, Integer nasc, Double renda) {
 		super();
 		this.name = name;
 		this.cpf = cpf;
@@ -24,11 +24,11 @@ public class Cliente {
 		this.name = name;
 	}
 
-	public Integer getCpf() {
+	public Long getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Integer cpf) {
+	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
 
