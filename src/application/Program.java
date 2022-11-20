@@ -83,8 +83,8 @@ public class Program {
 						for (Produto x : listDeProdutos) {
 							url.write(""+ x);
 						}
-						url.write("\n X\n X-----------------------------"
-								+ " X\n X O Valor total a pagar é R$"+saldoFinal+"\n X ....");
+						url.write("\n X\n X----------------------------------------"
+								+ "\n X O Valor total a pagar é R$"+saldoFinal+".00\n X ....");
 						url.close();
 					} catch (IOException e) {
 						e.printStackTrace();
