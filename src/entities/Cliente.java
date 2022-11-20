@@ -4,9 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Cliente {
-	public String name;
-	private Long cpf;
-	private Integer idade;
+	protected String name;
+	protected Long cpf;
+	protected Integer idade;
+	public String DayOfPagamento;
 	
 	public Cliente() {
 		
@@ -17,6 +18,7 @@ public class Cliente {
 		this.name = name;
 		this.cpf = cpf;
 		idade(idade);
+		diaDoPagamento();
 	}
 
 
@@ -50,10 +52,21 @@ public class Cliente {
 		idade = formatDataInt - nasc;
 	}
 	
+	public void diaDoPagamento(){
+		Date data = new Date();
+		SimpleDateFormat formatData = new SimpleDateFormat("dd/MM/yyyy");
+		DayOfPagamento = formatData.format(data);
+	}
+	
 	@Override
 	public String toString() {
-		return "\nNome :" + name 
-				+ "\nCPF :" + cpf 
-				+ "\nIdade :" + idade;
+		return"\n X   Nome.........: " + name 
+				+ "\n X   CPF..........: " + cpf 
+				+ "\n X   Idade........: " + idade
+				+ "\n X"
+				+ "\n X   Pagamento realizado na data :" + DayOfPagamento
+				+ "\n X"
+				+ "\n X";
 	}
+	
 }
