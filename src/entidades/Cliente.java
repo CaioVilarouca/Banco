@@ -48,5 +48,8 @@ public class Cliente {
 		this.renda = renda;
 	}
 	
-	
+	// Maior de idade
+	public void idade(int nasc) {
+		this.nasc = nasc - 2022;
+	}
 }

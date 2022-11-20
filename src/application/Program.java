@@ -17,7 +17,7 @@ public class Program {
 		long cpf;
 		int nasc;
 		double renda;
-				
+
 		// Hud OBS: Esse hud era para ser  swing
 		System.out.print("\n"
 				+ "│*-*-*-*-*-*-*-BANCO-*-*-*-*-*-*-*│\n"
@@ -33,18 +33,20 @@ public class Program {
 			// Cleinte 
 			System.out.println("              Abrindo conta comum             ");
 			System.out.println("│--------------------------------------------│");		
-				System.out.print("	Nome completo :");
+				System.out.print("│Nome completo :");
 				name = scanner.nextLine();
 				scanner.nextLine();
-				System.out.print("	CPF :");
+				System.out.print("│CPF :");
 				cpf = scanner.nextLong();
-				System.out.print("	Data de nascimento :");
+				System.out.print("│Data de nascimento :");
 				nasc = scanner.nextInt();
-				System.out.print("	Sua renda atual R$");
+				System.out.print("│Sua renda atual R$");
 				renda = scanner.nextDouble();
 				Cliente cliente = new Cliente(name, cpf, nasc, renda);
 			System.out.println("│--------------------------------------------│");
-		
+			cliente.idade(nasc);
+			System.out.println(cliente);
+			
 		}else if(menu == 'b' || menu == 'B') {
 			System.out.println("     Abrindo conta para empresa    ");
 
