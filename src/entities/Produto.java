@@ -3,15 +3,18 @@ package entities;
 public class Produto{
 	private String produtos;
 	private Integer amount ;
+	private Integer saldo;
 	
 	public Produto(){
 		
 	}
 
-	public Produto(String produtos, Integer amount) {
+	public Produto(String produtos, Integer amount, Integer saldo) {
 		super();
 		this.produtos = produtos;
 		this.amount = amount;
+		this.saldo = saldo;
+		sum(saldo);
 	}
 
 
@@ -26,11 +29,19 @@ public class Produto{
 	public Integer getAmount() {
 		return amount;
 	}
-
+	
+	public Integer getSaldo() {
+		return saldo;
+	}
+	
+	// Somando compra
+	public void sum(int saldo) {
+		this.saldo = amount * saldo;
+	}
 	
 	@Override
 	public String toString() {
 		return    "\n X   Produto.........: " +"[" + amount + "]:" + produtos
-				+ "\n X   Valor do produto:";
+				+ "\n X   Valores das compras R$"  +saldo+".00";
 	}
 }

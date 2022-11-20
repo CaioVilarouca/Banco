@@ -13,12 +13,11 @@ import entities.Produto;
 public class Program {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner scanner = new Scanner(System.in);
 		
 		String name, produtos;
 		long cpf;
-		int idade, amount = 0;
+		int idade, amount = 0, saldoFinal;
 		char menu, continueCompras;
 		
 		List<Cliente> dadosDoCliente = new ArrayList<>();
@@ -40,18 +39,16 @@ public class Program {
 				scanner.nextLine();
 				produtos = scanner.nextLine();
 				System.out.println("Produto custa R$9.99");
-				
-				Produto produto = new Produto(produtos, amount);
+				Produto produto = new Produto(produtos, amount, 10);
 				listDeProdutos.add(produto);
-		
+				saldoFinal = produto.getSaldo();
 				System.out.println("Quer continuar as compras [Y] ou [N]");
 				continueCompras = scanner.next().charAt(0);
 			}while(continueCompras == 'y' || continueCompras == 'Y');
 			scanner.nextLine();
-			System.out.println("Compras finalizada!\n"
+			System.out.println("Compras finalizada!"
 					+ "\nPrecisamos de alguns dados seus para emitir sua nota fiscal."
-					+ "\n"
-					+ "\n");
+					+ "\n------------------------------------------------------------");
 
 			try {
 				// Dados pessoais 
@@ -68,7 +65,7 @@ public class Program {
 				if(cliente.getIdade() >= 18){ //Validação de idade
 					try {
 						BufferedWriter url = new BufferedWriter(new FileWriter("C:/Users/Public/Desktop/NotaFiscal.txt"));
-						url.write("\n X                                                  "
+						url.write(" X                                                  "
 								+ "\n X                                                  "
 								+ "\n X                   Wilton Fiscal                  "
 								+ "\n X                                                  "
@@ -83,10 +80,10 @@ public class Program {
 						for (Produto x : listDeProdutos) {
 							url.write(""+ x);
 						}
-						url.write("\n X ....");
+						url.write("\n X\n X-----------------------------"
+								+ " X\n X O Valor total a pagar é R$"+saldoFinal+"\n X ....");
 						url.close();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					System.out.println("Execultado com sucesso!");
