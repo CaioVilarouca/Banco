@@ -3,19 +3,47 @@ package application;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
+
+import entities.Cliente;
 
 public class Program {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-			String[] name = {"Caio", "Bianca", "Giovanna"};
+		Locale.setDefault(Locale.US);
+		Scanner scanner = new Scanner(System.in);
+		
+		String name;
+		Long cpf;
+		int idade;
+		
+		List<Cliente> dadosDoCliente = new ArrayList<>();
+		
+		try {
+			// Dados pessoais 
+			System.out.print("Nome :");
+			name = scanner.nextLine();
+			System.out.print("CPF :");
+			cpf = scanner.nextLong();
+			System.out.print("Data de nascimento :");
+			idade = scanner.nextInt();
+	
+			Cliente cliente = new Cliente(name, cpf, idade);
+			dadosDoCliente.add(cliente);
+			
 			try {
 				BufferedWriter url = new BufferedWriter(new FileWriter("C:/Users/Public/Desktop/NotaFiscal.txt"));
-				url.write("ADOTADO");
-				url.write("\nCaio Vilarouca \n");
+				url.write("\nXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+						+ "\nX                                                  X"
+						+ "\nX                   NOTA FISCAL                    X"
+						+ "\nX                                                  X");
 				
-				for (String x : name) {
-					url.write("\n "+ x);
+				for (Cliente x : dadosDoCliente) {
+					url.write(""+ x);
 				}
 				
 				url.close();
@@ -23,9 +51,12 @@ public class Program {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		
-	
-		System.out.println("Executado com sucesso!");		
+			System.out.println("Execultado com sucesso!");
+		}catch (Exception x){
+			System.out.println("ERRO, dados digitado errado!\nNão foi possível gera nota fiscal.");	
+
+		}
+		scanner.close();
 		/*Notal Fical
 		 * 
 		 * Class

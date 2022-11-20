@@ -1,19 +1,22 @@
 package entities;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Cliente {
 	public String name;
 	private Long cpf;
-	private Integer nasc;
+	private Integer idade;
 	
 	public Cliente() {
 		
 	}
 
-	public Cliente(String name, Long cpf, Integer nasc) {
+	public Cliente(String name, Long cpf, Integer idade) {
 		super();
 		this.name = name;
 		this.cpf = cpf;
-		this.nasc = nasc;
+		idade(idade);
 	}
 
 
@@ -33,12 +36,24 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public Integer getNasc() {
-		return nasc;
+	public Integer getIdade() {
+		return idade;
 	}
-
+	
+	/*formatado para tipo simple, depois formatado para String,
+	 * depois uma classe invólucro para converte para Interger*/
+	public void idade(int nasc) {
+		Date data = new Date();
+		SimpleDateFormat formatData = new SimpleDateFormat("y");
+		String formatDataString = formatData.format(data);
+		int formatDataInt =  Integer.parseInt(formatDataString);
+		idade = formatDataInt - nasc;
+	}
+	
 	@Override
 	public String toString() {
-		return "Cliente [name=" + name + ", cpf=" + cpf + ", nasc=" + nasc + "]";
+		return "\nNome :" + name 
+				+ "\nCPF :" + cpf 
+				+ "\nIdade :" + idade;
 	}
 }
