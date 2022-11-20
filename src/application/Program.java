@@ -30,6 +30,7 @@ public class Program {
 		 * 	NameProduto
 		 * 	Valor
 		 * 	Quantidade
+		 * sum() // Somar o valores do produtos
 		 * 	DataCompra()// Data da compra e hora
 		 * Status()// PRO ou REC
 		 **/
