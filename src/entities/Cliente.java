@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Cliente {
-	protected String name;
+	private String name;
 	private Long cpf;
 	private Integer idade;
 	public String DayOfPagamento;

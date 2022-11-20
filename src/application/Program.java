@@ -23,7 +23,7 @@ public class Program {
 		List<Cliente> dadosDoCliente = new ArrayList<>();
 		List<Produto> listDeProdutos = new ArrayList<>();
 		
-		System.out.print("\n----=-=-== Loja de 9.99 ==-=-=----"
+		System.out.print("\n----=-=-== Loja de 9.99 ==-=-=----"// Hud
 				+ "\n	Vamos as compras!"
 				+ "\n"
 				+ "\n   [Y] Ir as compra ou [N] Não ir as compras"
@@ -31,7 +31,7 @@ public class Program {
 		
 		menu = scanner.next().charAt(0);
 		System.out.println("Vamos as compras..........\n");
-		if(menu == 'y' || menu == 'Y'){
+		if(menu == 'y' || menu == 'Y'){// Validação para ir as compras 
 			// Add compras no carrinho
 			do {
 				System.out.print("Nome do produto :");
@@ -39,18 +39,21 @@ public class Program {
 				scanner.nextLine();
 				produtos = scanner.nextLine();
 				System.out.println("Produto custa R$9.99");
+				
 				Produto produto = new Produto(produtos, amount, 10);
 				listDeProdutos.add(produto);
 				saldoFinal = produto.getSaldo();
+				
 				System.out.println("Quer continuar as compras [Y] ou [N]");
 				continueCompras = scanner.next().charAt(0);
+				
 			}while(continueCompras == 'y' || continueCompras == 'Y');
 			scanner.nextLine();
 			System.out.println("Compras finalizada!"
 					+ "\nPrecisamos de alguns dados seus para emitir sua nota fiscal."
 					+ "\n------------------------------------------------------------");
 
-			try {
+			try {// Tratando erro do usuário 
 				// Dados pessoais 
 				System.out.print("Nome :");
 				name = scanner.nextLine();
@@ -94,7 +97,7 @@ public class Program {
 				System.out.println("ERRO, dados digitado errado!\nNão foi possível gera nota fiscal.");	
 			}
 		}else {
-			System.out.println("Loja encerrado, volte sempre!");			
+			System.out.println("Loja encerrada, volte sempre!");			
 		}
 		scanner.close();
 	}
