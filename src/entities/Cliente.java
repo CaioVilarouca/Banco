@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class Cliente {
 	protected String name;
-	protected Long cpf;
-	protected Integer idade;
+	private Long cpf;
+	private Integer idade;
 	public String DayOfPagamento;
 	
 	public Cliente() {
