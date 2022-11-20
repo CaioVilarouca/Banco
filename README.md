@@ -7,7 +7,13 @@
 <h5>Desenvolvedor Caio Vilarouca</h5>
 <center>
    <table>
-     <tr><td></td></tr>
-     <tr><td></td></tr>
+     <tr>
+       <td>
+         <img alt="login" height="50%" style="margin: 10px" src="https://github.com/CaioVilarouca/Nota-Fiscal/blob/main/Nota%20Fiscal.PNG"/> 
+       </td>
+       <td>
+         <img alt="login" height="50%" style="margin: 10px" src="https://github.com/CaioVilarouca/Nota-Fiscal/blob/main/Console.PNG"/> 
+       </td>
+     </tr>
    </table>
 </center>
