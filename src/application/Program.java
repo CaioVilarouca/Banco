@@ -1,23 +1,31 @@
 package application;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Program {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Path url = Paths.get("C:/Users/Public/Desktop/NotaFical.txt");
-		String txt = "NOTA FISCAL";
-		byte[] txtByte = txt.getBytes();
-		try {
-			Files.write(url, txtByte);
-		}catch(Exception erro){
-			System.out.println("ERRO, tente novamente mais tade!");
-		}
-		System.out.println("Fim do programa!");
+			String[] name = {"Caio", "Bianca", "Giovanna"};
+			try {
+				BufferedWriter url = new BufferedWriter(new FileWriter("C:/Users/Public/Desktop/NotaFiscal.txt"));
+				url.write("ADOTADO");
+				url.write("\nCaio Vilarouca \n");
+				
+				for (String x : name) {
+					url.write("\n "+ x);
+				}
+				
+				url.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
+	
+		System.out.println("Executado com sucesso!");		
 		/*Notal Fical
 		 * 
 		 * Class
