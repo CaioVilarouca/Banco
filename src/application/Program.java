@@ -67,7 +67,7 @@ public class Program {
 				
 				if(cliente.getIdade() >= 18){ //Validação de idade
 					try {
-						BufferedWriter url = new BufferedWriter(new FileWriter("C:/Users/Public/Desktop/NotaFiscal.txt"));
+						BufferedWriter url = new BufferedWriter(new FileWriter("./Nota-Fiscal/Comprovante.txt"));
 						url.write(" X                                                  "
 								+ "\n X                                                  "
 								+ "\n X                   Wilton Fiscal                  "
