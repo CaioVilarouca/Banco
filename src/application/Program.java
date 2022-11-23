@@ -5,25 +5,52 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Scanner;
 
+
+import entitites.Caixa;
 import entitites.Cliente;
-import entitites.Produto;
+import entitites.Produtos;
+
 
 public class Program {
 
 	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
 		
-		String name, produtos;
-		long cpf;
-		int idade, amount = 0, saldoFinal;
+		String nomeProduto;
+		int amount;
+		double valor;
 		char menu, continueCompras;
 		
 		List<Cliente> dadosDoCliente = new ArrayList<>();
-		List<Produto> listDeProdutos = new ArrayList<>();
+		List<Produtos> listDeProdutos = new ArrayList<>();
+		List<Caixa> carrinho = new ArrayList<>();
 		
-		System.out.print("\n----=-=-== Loja de 9.99 ==-=-=----"// Hud
+		System.out.print("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n"
+				+ "[               SETOR DE COMPRAS              ]\n"
+				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n"
+				+ "[ Comprovante fiscal                          ]\n"
+				+ "[---------------------------------------------]\n"
+				+ "[ Exemplo:                                    ]\n"
+				+ "[ Nome do Produto      :Produto X             ]\n"
+				+ "[ Quantidade           :X                     ]\n"
+				+ "[ Preço do Produto   R$:XX.XX                 ]\n"
+				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n");
+		
+		System.out.print("[ Nome do produto..: ");
+		nomeProduto = scanner.nextLine();
+		System.out.printf("[ Quantidade de.....[%s]   : x", nomeProduto);
+		amount = scanner.nextInt();
+		System.out.printf("[ Valor do produto..[%s] R$:", nomeProduto);
+		valor = scanner.nextDouble();
+		
+		Produtos produtos = new Produtos(nomeProduto, amount, valor);
+		listDeProdutos.add(produtos);
+		
+		/*		System.out.print("\n----=-=-== Loja de 9.99 ==-=-=----"// Hud
 				+ "\n	Vamos as compras!"
 				+ "\n"
 				+ "\n   [Y] Ir as compra ou [N] Não ir as compras"
@@ -62,15 +89,17 @@ public class Program {
 				System.out.print("Data de nascimento (ex 0000) :");
 				idade = scanner.nextInt();
 		
-				Cliente cliente = new Cliente(name, cpf, idade);
-				dadosDoCliente.add(cliente);
+				//Cliente cliente = new Cliente(name, cpf, idade);
+			    //dadosDoCliente.add(cliente);
 				
 				if(cliente.getIdade() >= 18){ //Validação de idade
 					try {
 						BufferedWriter url = new BufferedWriter(new FileWriter("./Nota-Fiscal/Comprovante.txt"));
 						url.write(" X                                                  "
 								+ "\n X                                                  "
-								+ "\n X                   Wilton Fiscal                  "
+								+ "\n X              BANK Wilton - Brasília              "
+								+ "\n X                                                  "
+								+ "\n X                Wilton Comprovante                "
 								+ "\n X                                                  "
 								+ "\n X   Comprovante de pagamento                       "
 								+ "\n X                                                  "
@@ -99,6 +128,7 @@ public class Program {
 		}else {
 			System.out.println("Loja encerrada, volte sempre!");			
 		}
+		scanner.close();*/
 		scanner.close();
 	}
 	 // Desenvolvedor Caio Vilarouca
