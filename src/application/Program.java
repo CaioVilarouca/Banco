@@ -1,16 +1,16 @@
 package application;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+//import java.io.BufferedWriter;
+//import java.io.FileWriter;
+//import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 
-import entitites.Caixa;
-import entitites.Cliente;
+//import entitites.Caixa;
+//import entitites.Cliente;
 import entitites.Produtos;
 
 
@@ -20,14 +20,16 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
 		
-		String nomeProduto;
+		String nomeProduto, continueAdicionar;
 		int amount;
 		double valor;
-		char menu, continueCompras;
+		boolean adicionarMaisCompras;
 		
-		List<Cliente> dadosDoCliente = new ArrayList<>();
+		//char continueCompras;
+		
+		//List<Cliente> dadosDoCliente = new ArrayList<>();
 		List<Produtos> listDeProdutos = new ArrayList<>();
-		List<Caixa> carrinho = new ArrayList<>();
+		//List<Caixa> carrinho = new ArrayList<>();
 		
 		System.out.print("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n"
 				+ "[               SETOR DE COMPRAS              ]\n"
@@ -35,20 +37,38 @@ public class Program {
 				+ "[ Comprovante fiscal                          ]\n"
 				+ "[---------------------------------------------]\n"
 				+ "[ Exemplo:                                    ]\n"
+				+ "[ Preço do Produto   R$:XX.XX                 ]\n"
 				+ "[ Nome do Produto      :Produto X             ]\n"
 				+ "[ Quantidade           :X                     ]\n"
-				+ "[ Preço do Produto   R$:XX.XX                 ]\n"
 				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n");
 		
-		System.out.print("[ Nome do produto..: ");
-		nomeProduto = scanner.nextLine();
-		System.out.printf("[ Quantidade de.....[%s]   : x", nomeProduto);
-		amount = scanner.nextInt();
-		System.out.printf("[ Valor do produto..[%s] R$:", nomeProduto);
-		valor = scanner.nextDouble();
+		try {
+			do {// Adicionado produtos a lista genérica
+				System.out.printf("[ Nome do produto..: ");
+				nomeProduto = scanner.nextLine();
+				System.out.printf("[ Quantidade de.....[%s]   : x", nomeProduto);
+				amount = scanner.nextInt();
+				System.out.printf("[ Valor do produto..[%s] R$:", nomeProduto);
+				valor = scanner.nextDouble();
+				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");
+				
+				Produtos produtos = new Produtos(nomeProduto, amount, valor);
+				listDeProdutos.add(produtos);
+				
+				System.out.print("Adicionar mais compras [S|N] :");
+				continueAdicionar = scanner.next();
+				System.out.println("--------------------------------");
+				adicionarMaisCompras = continueAdicionar.equals("s") || continueAdicionar.equals("S")? true: false;
+				
+				scanner.nextLine();
+			}while(adicionarMaisCompras == true);
+			System.out.print("\nLista de compras finalizada.");
+			
+		}catch (Exception erroGeral) {
+			System.out.println("Dados inserido incorretamente!\nComprovante fiscal não foi gerado.");
+		}
 		
-		Produtos produtos = new Produtos(nomeProduto, amount, valor);
-		listDeProdutos.add(produtos);
+		System.out.println("Fim do programa, volte sempre !");
 		
 		/*		System.out.print("\n----=-=-== Loja de 9.99 ==-=-=----"// Hud
 				+ "\n	Vamos as compras!"
@@ -129,7 +149,6 @@ public class Program {
 			System.out.println("Loja encerrada, volte sempre!");			
 		}
 		scanner.close();*/
-		scanner.close();
 	}
 	 // Desenvolvedor Caio Vilarouca
 }
