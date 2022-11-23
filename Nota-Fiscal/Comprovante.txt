@@ -1,23 +1,10 @@
  X                                                  
  X                                                  
- X                   Wilton Fiscal                  
+ X              BANK Wilton - Brasília              
+ X                                                  
+ X                Wilton Comprovante                
  X                                                  
  X   Comprovante de pagamento                       
  X                                                  
  X                     Pagador                      
- X 
- X   Nome.........: Caio
- X   CPF..........: 1714
- X   Idade........: 22
- X
- X   Pagamento realizado na data :23/11/2022
- X
- X
- X   Produto.........: [1]:Caio
- X   Valores das compras R$10.00
- X   Produto.........: [2]:Arroz Doce
- X   Valores das compras R$20.00
- X
- X----------------------------------------
- X O Valor total a pagar é R$20.00
- X ....
+ X [ O valor total [R$:54.0][ O valor total [R$:112.5]

@@ -1,18 +1,16 @@
 package application;
 
-//import java.io.BufferedWriter;
-//import java.io.FileWriter;
-//import java.io.IOException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-
 //import entitites.Caixa;
 //import entitites.Cliente;
 import entitites.Produtos;
-
 
 public class Program {
 
@@ -43,18 +41,23 @@ public class Program {
 				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n");
 		
 		try {
-			do {// Adicionado produtos a lista genérica
+			do {
 				System.out.printf("[ Nome do produto..: ");
 				nomeProduto = scanner.nextLine();
 				System.out.printf("[ Quantidade de.....[%s]   : x", nomeProduto);
 				amount = scanner.nextInt();
 				System.out.printf("[ Valor do produto..[%s] R$:", nomeProduto);
 				valor = scanner.nextDouble();
-				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");
 				
+				// Adicionado produtos a lista genérica
 				Produtos produtos = new Produtos(nomeProduto, amount, valor);
 				listDeProdutos.add(produtos);
 				
+				// Somando quantidade e o valor do produto
+				produtos.printSum(amount, valor);
+				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");
+				
+				// Estrutura de decisão para sair do loop de add lista de compras 
 				System.out.print("Adicionar mais compras [S|N] :");
 				continueAdicionar = scanner.next();
 				System.out.println("--------------------------------");
@@ -67,39 +70,36 @@ public class Program {
 		}catch (Exception erroGeral) {
 			System.out.println("Dados inserido incorretamente!\nComprovante fiscal não foi gerado.");
 		}
-		
+				
+		// Write no bloco de notas
+		try {
+			BufferedWriter url = new BufferedWriter(new FileWriter("./Nota-Fiscal/Comprovante.txt"));
+			url.write(" X                                                  "
+					+ "\n X                                                  "
+					+ "\n X              BANK Wilton - Brasília              "
+					+ "\n X                                                  "
+					+ "\n X                Wilton Comprovante                "
+					+ "\n X                                                  "
+					+ "\n X   Comprovante de pagamento                       "
+					+ "\n X                                                  "
+					+ "\n X                     Pagador                      "
+					+ "\n X ");
+			
+			/*for (Cliente x : dadosDoCliente) {
+				url.write(""+ x);
+			}*/
+			// estanciando objeto
+			for (Produtos x : listDeProdutos) {
+				url.write(""+ x);
+			}
+			
+			url.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		System.out.println("Fim do programa, volte sempre !");
-		
-		/*		System.out.print("\n----=-=-== Loja de 9.99 ==-=-=----"// Hud
-				+ "\n	Vamos as compras!"
-				+ "\n"
-				+ "\n   [Y] Ir as compra ou [N] Não ir as compras"
-				+ "\n Opção :");
-		
-		menu = scanner.next().charAt(0);
-		System.out.println("Vamos as compras..........\n");
-		if(menu == 'y' || menu == 'Y'){// Validação para ir as compras 
-			// Add compras no carrinho
-			do {
-				System.out.print("Nome do produto :");
-				amount++;
-				scanner.nextLine();
-				produtos = scanner.nextLine();
-				System.out.println("Produto custa R$9.99");
-				
-				Produto produto = new Produto(produtos, amount, 10);
-				listDeProdutos.add(produto);
-				saldoFinal = produto.getSaldo();
-				
-				System.out.println("Quer continuar as compras [Y] ou [N]");
-				continueCompras = scanner.next().charAt(0);
-				
-			}while(continueCompras == 'y' || continueCompras == 'Y');
-			scanner.nextLine();
-			System.out.println("Compras finalizada!"
-					+ "\nPrecisamos de alguns dados seus para emitir sua nota fiscal."
-					+ "\n------------------------------------------------------------");
-
+		scanner.close();
+		/*	
 			try {// Tratando erro do usuário 
 				// Dados pessoais 
 				System.out.print("Nome :");
@@ -148,7 +148,7 @@ public class Program {
 		}else {
 			System.out.println("Loja encerrada, volte sempre!");			
 		}
-		scanner.close();*/
+		*/
 	}
 	 // Desenvolvedor Caio Vilarouca
 }
