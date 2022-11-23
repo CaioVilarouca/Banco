@@ -1,10 +1,22 @@
  X                                                  
+ X             BANK WILTON -- BRASÍLIA              
  X                                                  
- X              BANK Wilton - Brasília              
+ X      RECIBO DE PAGAMAENTO - CODIGO DE BARRAS     
+ X             PARA SIMPLES CONFERENCIA             
  X                                                  
+ X   Agencia:0000  Terminal:0000  Conta:00000000-0  
  X                Wilton Comprovante                
  X                                                  
- X   Comprovante de pagamento                       
- X                                                  
- X                     Pagador                      
- X [ O valor total [R$:54.0][ O valor total [R$:112.5]
+ X 
+ X Nome do produto .......: Arroz
+ X Quantidade ............: [35]
+ X Preço ...............R$: 1226.05
+ X ---------------------------------------------------
+ X Nome do produto .......: Chocolate
+ X Quantidade ............: [15]
+ X Preço ...............R$: 795.00
+ X ---------------------------------------------------
+ X Nome do produto .......: Coca Cola
+ X Quantidade ............: [15]
+ X Preço ...............R$: 122.10
+ X ---------------------------------------------------

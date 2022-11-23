@@ -19,37 +19,32 @@ public class Produtos{
 		return nomeProduto;
 	}
 
-
-
 	public void setNomeProduto(String nomeProduto) {
 		this.nomeProduto = nomeProduto;
 	}
-
-
 
 	public Integer getAmount() {
 		return amount;
 	}
 
-
-
 	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
 
-
-
 	public Double getValor() {
 		return valor;
 	}
-	
-	
+		
 	public void printSum(int amount, double valor) {
 		this.valor = amount * valor;
 		System.out.printf("[ O valor total.....[R$:%.2f] do(a) %s\n",this.valor, nomeProduto);
 	}
 
 	public String toString() {
-		return "";
+		return String.format("\n X Nome do produto .......: %s"
+				+ "\n X Quantidade ............: [%d]"
+				+ "\n X Preço ...............R$: %.2f"
+				+ "\n X ---------------------------------", nomeProduto, amount, valor);
+
 	}
 }

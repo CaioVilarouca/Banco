@@ -75,14 +75,14 @@ public class Program {
 		try {
 			BufferedWriter url = new BufferedWriter(new FileWriter("./Nota-Fiscal/Comprovante.txt"));
 			url.write(" X                                                  "
+					+ "\n X             BANK WILTON -- BRASÍLIA              "
 					+ "\n X                                                  "
-					+ "\n X              BANK Wilton - Brasília              "
+					+ "\n X      RECIBO DE PAGAMAENTO - CODIGO DE BARRAS     "
+					+ "\n X             PARA SIMPLES CONFERENCIA             "
 					+ "\n X                                                  "
+					+ "\n X   Agencia:0000  Terminal:0000  Conta:00000000-0  "
 					+ "\n X                Wilton Comprovante                "
-					+ "\n X                                                  "
-					+ "\n X   Comprovante de pagamento                       "
-					+ "\n X                                                  "
-					+ "\n X                     Pagador                      "
+					+ "\n X                                                  "                                             
 					+ "\n X ");
 			
 			/*for (Cliente x : dadosDoCliente) {
@@ -99,56 +99,6 @@ public class Program {
 		}
 		System.out.println("Fim do programa, volte sempre !");
 		scanner.close();
-		/*	
-			try {// Tratando erro do usuário 
-				// Dados pessoais 
-				System.out.print("Nome :");
-				name = scanner.nextLine();
-				System.out.print("CPF :");
-				cpf = scanner.nextLong();
-				System.out.print("Data de nascimento (ex 0000) :");
-				idade = scanner.nextInt();
-		
-				//Cliente cliente = new Cliente(name, cpf, idade);
-			    //dadosDoCliente.add(cliente);
-				
-				if(cliente.getIdade() >= 18){ //Validação de idade
-					try {
-						BufferedWriter url = new BufferedWriter(new FileWriter("./Nota-Fiscal/Comprovante.txt"));
-						url.write(" X                                                  "
-								+ "\n X                                                  "
-								+ "\n X              BANK Wilton - Brasília              "
-								+ "\n X                                                  "
-								+ "\n X                Wilton Comprovante                "
-								+ "\n X                                                  "
-								+ "\n X   Comprovante de pagamento                       "
-								+ "\n X                                                  "
-								+ "\n X                     Pagador                      "
-								+ "\n X ");
-						
-						for (Cliente x : dadosDoCliente) {
-							url.write(""+ x);
-						}
-						for (Produto x : listDeProdutos) {
-							url.write(""+ x);
-						}
-						url.write("\n X\n X----------------------------------------"
-								+ "\n X O Valor total a pagar é R$"+saldoFinal+".00\n X ....");
-						url.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-					System.out.println("Execultado com sucesso!");
-				}else {
-					System.out.println("Não foi possível imprimir a nota fiscal.\nMenor de idade " + cliente.getIdade());
-				}
-			}catch (Exception x){
-				System.out.println("ERRO, dados digitado errado!\nNão foi possível gera nota fiscal.");	
-			}
-		}else {
-			System.out.println("Loja encerrada, volte sempre!");			
-		}
-		*/
 	}
 	 // Desenvolvedor Caio Vilarouca
 }
