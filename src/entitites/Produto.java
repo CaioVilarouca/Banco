@@ -1,4 +1,4 @@
-package entities;
+package entitites;
 
 public class Produto{
 	private String produtos;

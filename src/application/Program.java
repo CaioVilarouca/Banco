@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import entities.Cliente;
-import entities.Produto;
+import entitites.Cliente;
+import entitites.Produto;
 
 public class Program {
 
