@@ -1,8 +1,5 @@
 package entitites;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Cliente {
 	private String name;
 	private Long cpf;
@@ -17,49 +14,33 @@ public class Cliente {
 		return name;
 	}
 
-
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
 
 	public Long getCpf() {
 		return cpf;
 	}
 
-
-
 	public void setCpf(Long cpf) {
 		this.cpf = cpf;
 	}
-
-
 
 	public Integer getIdade() {
 		return idade;
 	}
 
-
-
 	public void setIdade(Integer idade) {
 		this.idade = idade;
 	}
-
-
 
 	public Integer getNasc() {
 		return nasc;
 	}
 
-
-
 	public void setNasc(Integer nasc) {
 		this.nasc = nasc;
 	}
-
-
 
 	/*formatado para tipo simple, depois formatado para String,
 	 * depois uma classe invólucro para converte para Interger
@@ -79,13 +60,6 @@ public class Cliente {
 	*/
 	@Override
 	public String toString() {
-		return"\n X   Nome.........: " + name 
-				+ "\n X   CPF..........: " + cpf 
-				+ "\n X   Idade........: " 
-				+ "\n X"
-				+ "\n X   Pagamento realizado na data :" 
-				+ "\n X"
-				+ "\n X";
+		return"";
 	}
-	
 }
