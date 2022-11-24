@@ -33,9 +33,9 @@ public class Program {
 				+ "[ Comprovante fiscal                          ]\n"
 				+ "[---------------------------------------------]\n"
 				+ "[ Exemplo:                                    ]\n"
-				+ "[ Preço do Produto   R$:XX.XX                 ]\n"
 				+ "[ Nome do Produto      :Produto X             ]\n"
 				+ "[ Quantidade           :X                     ]\n"
+				+ "[ Preço do Produto   R$:XX.XX                 ]\n"
 				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n");
 		
 		try {
@@ -52,10 +52,6 @@ public class Program {
 				// Adicionado produtos a lista genérica
 				Produtos produtos = new Produtos(nomeProduto, amount, valor);
 				listDeProdutos.add(produtos);
-				
-				// Somando quantidade e o valor do 
-				produtos.printSum(amount, valor);
-				//produtos.sum(amountFinal, valorFinal);
 
 				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");
 				// Estrutura de decisão para sair do loop de add lista de compras 
@@ -67,7 +63,6 @@ public class Program {
 				scanner.nextLine();
 			}while(adicionarMaisCompras == true);
 			System.out.print("\nLista de compras finalizada.");
-			
 			
 			// Write no bloco de notas
 			try {
@@ -98,7 +93,6 @@ public class Program {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
 		}catch (Exception erroGeral) {
 			System.out.println("Dados inserido incorretamente!\nComprovante fiscal não foi gerado.");
 		}
@@ -107,6 +101,11 @@ public class Program {
 		scanner.close();
 	}
 	 // Desenvolvedor Caio Vilarouca
+
+	private static Produtos Produtos(String nomeProduto, int amount, double valor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	/*Cliente da valor final / pagamento pendente / dia do pagamento / hora do pagamento*/
 }

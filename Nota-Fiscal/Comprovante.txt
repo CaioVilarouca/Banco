@@ -1,0 +1,16 @@
+ X                                                  
+ X             BANK WILTON -- BRASÍLIA              
+ X                                                  
+ X      RECIBO DE PAGAMAENTO - CODIGO DE BARRAS     
+ X             PARA SIMPLES CONFERENCIA             
+ X                                                  
+ X   Agencia:0000  Terminal:0000  Conta:00000000-0  
+ X                Wilton Comprovante                
+ X                                                  
+ X 
+ X  Data do debito :
+ X  Valor total :
+ X  Nome do produto .......: arroz
+ X  Unidade do produto ....:[5]
+ X  Preço ...............R$: 2.00
+ X  -----------------------------------
