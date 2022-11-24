@@ -18,8 +18,8 @@ public class Program {
 		Scanner scanner = new Scanner(System.in);
 		
 		String nomeProduto, continueAdicionar;
-		int amount, amountFinal;
-		double valor, valorFinal;
+		int amount;
+		double valor;
 		boolean adicionarMaisCompras;
 		
 		//char continueCompras;
@@ -38,31 +38,34 @@ public class Program {
 				+ "[ Preço do Produto   R$:XX.XX                 ]\n"
 				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n");
 		
-		try {
+		// Tudo dentro do try catch
+		
+		try{
 			do {
+				// Get de dados
 				System.out.printf("[ Nome do produto..: ");
 				nomeProduto = scanner.nextLine();
 				System.out.printf("[ Quantidade de.....[%s]   : x", nomeProduto);
 				amount = scanner.nextInt();
-				//amountFinal = amount;
 				System.out.printf("[ Valor do produto..[%s] R$:", nomeProduto);
 				valor = scanner.nextDouble();
-				//valorFinal = valor;
-				
+				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");
+
 				// Adicionado produtos a lista genérica
 				Produtos produtos = new Produtos(nomeProduto, amount, valor);
-				listDeProdutos.add(produtos);
-
-				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");
+				listDeProdutos.add(produtos);	
+				
 				// Estrutura de decisão para sair do loop de add lista de compras 
 				System.out.print("Adicionar mais compras [S|N] :");
 				continueAdicionar = scanner.next();
 				System.out.println("--------------------------------");
 				adicionarMaisCompras = continueAdicionar.equals("s") || continueAdicionar.equals("S")? true: false;
-				
 				scanner.nextLine();
+				
 			}while(adicionarMaisCompras == true);
 			System.out.print("\nLista de compras finalizada.");
+
+			
 			
 			// Write no bloco de notas
 			try {
@@ -78,7 +81,8 @@ public class Program {
 						+ "\n X                                                  "                                             
 						+ "\n X ");
 
-				url.write("\n X  Data do debito :\n X  Valor total :");
+				
+				url.write("\n X  Data do debito :\n X  Valor total : \n X ");
 				
 				/*for (Cliente x : dadosDoCliente) {
 					url.write(""+ x);
@@ -87,25 +91,16 @@ public class Program {
 				for (Produtos x : listDeProdutos) {
 					url.write(""+ x);
 				}
+	
 				
-				
-				url.close();
+			url.close();
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
+			}	
 		}catch (Exception erroGeral) {
 			System.out.println("Dados inserido incorretamente!\nComprovante fiscal não foi gerado.");
 		}
-
 		System.out.println("Fim do programa, volte sempre !");
-		scanner.close();
 	}
 	 // Desenvolvedor Caio Vilarouca
-
-	private static Produtos Produtos(String nomeProduto, int amount, double valor) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	/*Cliente da valor final / pagamento pendente / dia do pagamento / hora do pagamento*/
 }

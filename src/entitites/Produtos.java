@@ -3,7 +3,7 @@ package entitites;
 public class Produtos{
 	private String nomeProduto;
 	private Integer amount ;
-	private Double valor;
+	protected Double valor;
 	
 	public Produtos(){
 		super();
@@ -40,10 +40,13 @@ public class Produtos{
 	}
 
 	// Somando valor do produto vezes a quantidades
+
 	public void printSum(int amount, double valor) {
-		//System.out.printf("[ O valor total.....[R$:%.2f] do(a) %s\n", this.valor, nomeProduto);
+		this.valor = amount * valor;
+		System.out.printf("[ O valor total.....[R$:%.2f] do(a) %s\n", this.valor, nomeProduto);
 	}
 	
+	@Override
 	public String toString() {
 		return String.format("\n X  Nome do produto .......: %s"
 				+ "\n X  Unidade do produto ....: [%d]"
