@@ -48,13 +48,10 @@ public class Produtos{
 		this.valorFinal = valorFinal;
 	}
 
+	// Mesma operação, uma retorna para console e a outra para a lista
 	public double sum(int amount, double valor){
 		this.valor = amount * valor;
 		return amount * valor;
-	}
-	
-	public void sumFinal(double valorFinal) {
-		this.valorFinal += valorFinal;
 	}
 	
 	@Override

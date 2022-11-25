@@ -17,7 +17,7 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
 		
-		String nomeProduto, continueAdicionar;
+		String nomeProduto = "", continueAdicionar;
 		int amount;
 		double valor, valorProduto, valorFinal = 0;
 		boolean adicionarMaisCompras;
@@ -43,11 +43,6 @@ public class Program {
 				// Get de dados
 				System.out.printf("[ Nome do produto..: ");
 				nomeProduto = scanner.nextLine();
-				/*	if (scanner.nextLine() != null ||  scanner.nextLine() == "") {
-				}else {
-					System.out.println("Nome do produto  ");
-					nomeProduto = scanner.nextLine();
-				}*/
 				System.out.printf("[ Quatidade ........[%s] : x", nomeProduto);
 				amount = scanner.nextInt();
 				System.out.printf("[ Valor do produto..[%s] R$:", nomeProduto);
@@ -57,22 +52,11 @@ public class Program {
 				Produtos produtos = new Produtos(nomeProduto, amount, valor);
 				listDeProdutos.add(produtos);
 				
+				// Soma de quantidade mais valor e atribuido numa var acomulativo
 				produtos.sum(amount, valor);
 				valorProduto = produtos.sum(amount, valor);
 				valorFinal  += produtos.sum(amount, valor);
 				System.out.printf("[ Valor Final é ....[%s] R$:%.2f \n",nomeProduto, valorProduto);
-
-				// Soma de quantidade mais o valor
-				/*produtos.sum(amount, valor);
-				valorProdutos = produtos.printSum(amount, valor);
-				if(valorFinal != 0.0) {
-					valorFinal += produtos.printSum(amount, valor);
-				}else {
-					valorFinal = produtos.printSum(amount, valor);
-				}*/
-								
-				//System.out.printf("[ Valor Final é ....[%s] R$:%.2f \n",nomeProduto, valorProdutos);
-
 				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");
 				
 				// Estrutura de decisão para sair do loop de add lista de compras 
