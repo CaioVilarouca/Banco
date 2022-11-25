@@ -9,9 +9,10 @@ public class Produtos{
 		super();
 	}
 	
-	public Produtos(String nomeProduto, Double valor) {
+	public Produtos(String nomeProduto, Double valor, Double valorFinal) {
 		this.nomeProduto = nomeProduto;
 		this.valor = valor;
+		this.valorFinal = valorFinal;
 	}
 
 	public String getNomeProduto() {
@@ -36,6 +37,10 @@ public class Produtos{
 
 	public void setValorFinal(Double valorFinal) {
 		this.valorFinal = valorFinal;
+	}
+	
+	public void sum(double valorFinal) {
+		this.valorFinal += valorFinal;
 	}
 	
 	@Override

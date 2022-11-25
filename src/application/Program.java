@@ -18,7 +18,7 @@ public class Program {
 		Scanner scanner = new Scanner(System.in);
 		
 		String nomeProduto, continueAdicionar;
-		double valor;
+		double valor, valorFinal, resultadoSum = 0;
 		boolean adicionarMaisCompras;
 				
 		//List<Cliente> dadosDoCliente = new ArrayList<>();
@@ -43,10 +43,12 @@ public class Program {
 				System.out.printf("[ Valor do produto..[%s] R$:", nomeProduto);
 				valor = scanner.nextDouble();
 				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");
-
+				valorFinal = valor;
 				// Adicionado produtos a lista genérica
-				Produtos produtos = new Produtos(nomeProduto, valor);
-				listDeProdutos.add(produtos);	
+				Produtos produtos = new Produtos(nomeProduto, valor ,valorFinal);
+				listDeProdutos.add(produtos);
+				produtos.sum(valorFinal);
+				resultadoSum = produtos.getValorFinal();
 				
 				// Estrutura de decisão para sair do loop de add lista de compras 
 				System.out.print("Adicionar mais compras [S|N] :");
@@ -82,6 +84,8 @@ public class Program {
 				for (Produtos x : listDeProdutos) {
 					url.write(""+ x);
 				}
+				
+				url.write(String.format("\n X Valor do debito %.2f", resultadoSum));
 				
 			url.close();
 			} catch (IOException e) {
