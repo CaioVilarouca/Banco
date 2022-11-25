@@ -7,7 +7,13 @@ public class Cliente {
 	public Cliente() {
 		super();
 	}
-
+	
+	public Cliente(String name, Long cpf) {
+		super();
+		this.name = name;
+		this.cpf = cpf;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -24,25 +30,11 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-
-	/*formatado para tipo simple, depois formatado para String,
-	 * depois uma classe invólucro para converte para Interger
-	public void idade(int nasc) {
-		Date data = new Date();
-		SimpleDateFormat formatData = new SimpleDateFormat("y");
-		String formatDataString = formatData.format(data);
-		int formatDataInt =  Integer.parseInt(formatDataString);
-		idade = formatDataInt - nasc;
-	}
-	
-	public void diaDoPagamento(){
-		Date data = new Date();
-		SimpleDateFormat formatData = new SimpleDateFormat("dd/MM/yyyy");
-		DayOfPagamento = formatData.format(data);
-	}
-	*/
 	@Override
 	public String toString() {
-		return"";
+		return "\n X  Nome.......: " +name
+				+ "\n X  CPF   .....: " +cpf;
 	}
+
+	
 }

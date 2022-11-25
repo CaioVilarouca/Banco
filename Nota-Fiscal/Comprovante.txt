@@ -7,10 +7,22 @@
  X   Agencia:0000  Terminal:0000  Conta:00000000-0  
  X                Wilton Comprovante                
  X                                                  
+ X                                                  
+ X                      Pagador                     
  X 
- X  Nome do produto .......: a
+ X  Nome.......: Caio Vinício Nunes Vilarouca
+ X  CPF   .....: 1973158456
+ X  Nome do produto .......: Arroz Doce
  X  Quantidade pedida .....: [x5]
- X  Preço .............. R$: 25.00
+ X  Preço .............. R$: 35.00
  X  -----------------------------------
- X  Data do debito  :25/11/2022
- X  Valor do debito: R$25.00
+ X  Nome do produto .......: Coca cola
+ X  Quantidade pedida .....: [x15]
+ X  Preço .............. R$: 125.25
+ X  -----------------------------------
+ X  Nome do produto .......: Feijão Branco
+ X  Quantidade pedida .....: [x3]
+ X  Preço .............. R$: 39.27
+ X  -----------------------------------
+ X  Data do debito :25/11/2022
+ X  Valor do debito: R$199.52

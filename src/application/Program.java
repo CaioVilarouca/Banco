@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-//import entitites.Cliente;
+import entitites.Cliente;
 import entitites.Produtos;
 
 
@@ -19,8 +19,10 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
 		
-		String nomeProduto, continueAdicionar, todyPayDay;
+		String nomeProduto, todyPayDay, name;
+		char continueAdicionar, cpfNota;
 		int amount;
+		long cpf;
 		double valor, valorProduto, valorFinal = 0;
 		boolean adicionarMaisCompras;
 		
@@ -29,7 +31,7 @@ public class Program {
 		SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy");
 		todyPayDay = format.format(data);
 		
-		//List<Cliente> dadosDoCliente = new ArrayList<>();
+		List<Cliente> dadosDoCliente = new ArrayList<>();
 		List<Produtos> listDeProdutos = new ArrayList<>();
 				
 		System.out.print("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n"
@@ -68,14 +70,21 @@ public class Program {
 				
 				// Estrutura de decisão para sair do loop de add lista de compras 
 				System.out.print("Adicionar mais compras [S|N] :");
-				continueAdicionar = scanner.next();
+				continueAdicionar = scanner.next().charAt(0);
 				System.out.println("--------------------------------");
-				adicionarMaisCompras = continueAdicionar.equals("s") || continueAdicionar.equals("S")? true: false;
+				adicionarMaisCompras = continueAdicionar =='s' || continueAdicionar == 'S'? true: false;
 				scanner.nextLine();
 
 			}while(adicionarMaisCompras == true);
-			System.out.print("\n	Lista de compras finalizada. \n 	Volte Sempre! "+ todyPayDay);
-		
+			System.out.print("\n	Lista de compras finalizada.");
+			
+			// Dados do cliente
+			System.out.print("\nDigite seu nome completo :");
+			name = scanner.nextLine();
+			System.out.print("CPF na nota :");
+			cpf = scanner.nextLong();
+			Cliente cliente = new Cliente(name, cpf);
+			dadosDoCliente.add(cliente);
 			
 			// Write no bloco de notas
 			try {
@@ -88,9 +97,14 @@ public class Program {
 						+ "\n X                                                  "
 						+ "\n X   Agencia:0000  Terminal:0000  Conta:00000000-0  "
 						+ "\n X                Wilton Comprovante                "
+						+ "\n X                                                  "   
 						+ "\n X                                                  "                                             
+						+ "\n X                      Pagador                     "                                             
 						+ "\n X ");
-
+				// estanciando objeto
+				for (Cliente x : dadosDoCliente) {
+					url.write(""+ x);
+				}
 
 				// estanciando objeto
 				for (Produtos x : listDeProdutos) {
@@ -105,7 +119,8 @@ public class Program {
 		}catch (Exception erroGeral) {
 			System.out.println("Dados inserido incorretamente!\nComprovante fiscal não foi gerado.");
 		}
-		System.out.println("\nFim do programa. ");
+		System.out.println("\n 	Volte Sempre! "+ todyPayDay);
+		System.out.println(" Fim do programa. ");
 		scanner.close();
 	}
 	 // Desenvolvedor Caio Vilarouca
