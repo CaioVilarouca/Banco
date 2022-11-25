@@ -18,7 +18,8 @@ public class Program {
 		Scanner scanner = new Scanner(System.in);
 		
 		String nomeProduto, continueAdicionar;
-		double valor, valorFinal, resultadoSum = 0;
+		int amount;
+		double valor, valorFinal = 0, resultadoSum;
 		boolean adicionarMaisCompras;
 				
 		//List<Cliente> dadosDoCliente = new ArrayList<>();
@@ -30,25 +31,27 @@ public class Program {
 				+ "[ Comprovante fiscal                          ]\n"
 				+ "[---------------------------------------------]\n"
 				+ "[ Exemplo:                                    ]\n"
-				+ "[ Nome do Produto      :Produto X             ]\n"
-				+ "[ Preço do Produto   R$:XX.XX                 ]\n"
+				+ "[ Nome do Produto      : Produto X            ]\n"
+				+ "[ Quantidade do produto: xX                   ]\n"
+				+ "[ Preço do Produto   R$: XX.XX                ]\n"
 				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n");
-		
+
 		// Tudo dentro do try catch		
 		try{
 			do {
 				// Get de dados
 				System.out.printf("[ Nome do produto..: ");
 				nomeProduto = scanner.nextLine();
+				System.out.printf("[ Quatidade ........[%s] : x", nomeProduto);
+				amount = scanner.nextInt();
 				System.out.printf("[ Valor do produto..[%s] R$:", nomeProduto);
 				valor = scanner.nextDouble();
-				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");
-				valorFinal = valor;
+				
 				// Adicionado produtos a lista genérica
-				Produtos produtos = new Produtos(nomeProduto, valor ,valorFinal);
+				Produtos produtos = new Produtos(nomeProduto,amount ,valor, valorFinal);
 				listDeProdutos.add(produtos);
-				produtos.sum(valorFinal);
-				resultadoSum = produtos.getValorFinal();
+				produtos.printSum(amount, valor);
+				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");
 				
 				// Estrutura de decisão para sair do loop de add lista de compras 
 				System.out.print("Adicionar mais compras [S|N] :");
@@ -85,7 +88,7 @@ public class Program {
 					url.write(""+ x);
 				}
 				
-				url.write(String.format("\n X Valor do debito %.2f", resultadoSum));
+				//url.write(String.format("\n X  Valor do debito: R$[%.2f]", resultadoSum));
 				
 			url.close();
 			} catch (IOException e) {
@@ -95,6 +98,7 @@ public class Program {
 			System.out.println("Dados inserido incorretamente!\nComprovante fiscal não foi gerado.");
 		}
 		System.out.println("Fim do programa, volte sempre !");
+		scanner.close();
 	}
 	 // Desenvolvedor Caio Vilarouca
 }

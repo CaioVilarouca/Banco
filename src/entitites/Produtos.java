@@ -2,17 +2,19 @@ package entitites;
 
 public class Produtos{
 	private String nomeProduto;
+	private Integer amount;
 	private Double valor;
-	public Double valorFinal;
+	private Double valorFinal;
 
 	public Produtos(){
 		super();
 	}
 	
-	public Produtos(String nomeProduto, Double valor, Double valorFinal) {
+	public Produtos(String nomeProduto, Integer amount, Double valor, Double valorFinal) {
 		this.nomeProduto = nomeProduto;
+		this.amount = amount;
 		this.valor = valor;
-		this.valorFinal = valorFinal;
+		this.valorFinal= valorFinal;
 	}
 
 	public String getNomeProduto() {
@@ -21,6 +23,14 @@ public class Produtos{
 
 	public void setNomeProduto(String nomeProduto) {
 		this.nomeProduto = nomeProduto;
+	}
+
+	public Integer getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Integer amount) {
+		this.amount = amount;
 	}
 
 	public Double getValor() {
@@ -39,14 +49,17 @@ public class Produtos{
 		this.valorFinal = valorFinal;
 	}
 	
-	public void sum(double valorFinal) {
-		this.valorFinal += valorFinal;
+	public void printSum(int amount, double valor) {
+		this.valor = amount *  valor;
+		System.out.printf("[ Valor Final é ....[%s] R$:%.2f \n", nomeProduto, this.valor);
 	}
 	
 	@Override
 	public String toString() {
 		return String.format("\n X  Nome do produto .......: %s"
-				+ "\n X  Preço ...............[R$: %.2f]"
-				+ "\n X  -----------------------------------", nomeProduto, valor);
+				+ "\n X  Quantidade pedida .....: [%d]"
+				+ "\n X  Preço .............. R$: %.2f"
+				+ "\n X  -----------------------------------", nomeProduto, amount, valor);
 	}
 }
+

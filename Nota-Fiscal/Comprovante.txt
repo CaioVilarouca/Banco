@@ -11,10 +11,11 @@
  X  Data do debito :
  X  Valor total : 
  X 
- X  Nome do produto .......: a
- X  Preço ...............[R$: 5.00]
+ X  Nome do produto .......: c
+ X  Quantidade pedida .....: [5]
+ X  Preço .............. R$: 25.00
  X  -----------------------------------
  X  Nome do produto .......: b
- X  Preço ...............[R$: 7.00]
+ X  Quantidade pedida .....: [4]
+ X  Preço .............. R$: 20.00
  X  -----------------------------------
- X Valor do debito 14.00
