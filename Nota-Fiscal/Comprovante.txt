@@ -8,12 +8,9 @@
  X                Wilton Comprovante                
  X                                                  
  X 
- X  Nome do produto .......: Coca Cola
- X  Quantidade pedida .....: [x5]
- X  Preço .............. R$: 125.00
- X  -----------------------------------
- X  Nome do produto .......: pão
+ X  Nome do produto .......: a
  X  Quantidade pedida .....: [x5]
  X  Preço .............. R$: 25.00
  X  -----------------------------------
- X  Valor do debito: R$[150.00]
+ X  Data do debito  :25/11/2022
+ X  Valor do debito: R$25.00

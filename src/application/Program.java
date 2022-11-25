@@ -3,7 +3,9 @@ package application;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -17,11 +19,16 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
 		
-		String nomeProduto = "", continueAdicionar;
+		String nomeProduto, continueAdicionar, todyPayDay;
 		int amount;
 		double valor, valorProduto, valorFinal = 0;
 		boolean adicionarMaisCompras;
-				
+		
+		// Data do pagamento
+		Date data = new Date();
+		SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy");
+		todyPayDay = format.format(data);
+		
 		//List<Cliente> dadosDoCliente = new ArrayList<>();
 		List<Produtos> listDeProdutos = new ArrayList<>();
 				
@@ -67,9 +74,10 @@ public class Program {
 				scanner.nextLine();
 
 			}while(adicionarMaisCompras == true);
-			System.out.print("\nLista de compras finalizada.");
-			// Write no bloco de notas
+			System.out.print("\n	Lista de compras finalizada. \n 	Volte Sempre! "+ todyPayDay);
+		
 			
+			// Write no bloco de notas
 			try {
 				BufferedWriter url = new BufferedWriter(new FileWriter("./Nota-Fiscal/Comprovante.txt"));
 				url.write(" X                                                  "
@@ -88,7 +96,7 @@ public class Program {
 				for (Produtos x : listDeProdutos) {
 					url.write(""+ x);
 				}
-				url.write(String.format("\n X  Valor do debito: R$[%.2f]", valorFinal));
+				url.write(String.format("\n X  Data do debito :%s\n X  Valor do debito: R$%.2f",todyPayDay, valorFinal));
 				
 			url.close();
 			} catch (IOException e) {
@@ -97,7 +105,7 @@ public class Program {
 		}catch (Exception erroGeral) {
 			System.out.println("Dados inserido incorretamente!\nComprovante fiscal não foi gerado.");
 		}
-		System.out.println("Fim do programa, volte sempre !");
+		System.out.println("\nFim do programa. ");
 		scanner.close();
 	}
 	 // Desenvolvedor Caio Vilarouca

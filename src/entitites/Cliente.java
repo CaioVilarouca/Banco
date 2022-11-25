@@ -3,9 +3,7 @@ package entitites;
 public class Cliente {
 	private String name;
 	private Long cpf;
-	private Integer idade;
-	private Integer nasc;
-	
+
 	public Cliente() {
 		super();
 	}
@@ -26,21 +24,6 @@ public class Cliente {
 		this.cpf = cpf;
 	}
 
-	public Integer getIdade() {
-		return idade;
-	}
-
-	public void setIdade(Integer idade) {
-		this.idade = idade;
-	}
-
-	public Integer getNasc() {
-		return nasc;
-	}
-
-	public void setNasc(Integer nasc) {
-		this.nasc = nasc;
-	}
 
 	/*formatado para tipo simple, depois formatado para String,
 	 * depois uma classe invólucro para converte para Interger
