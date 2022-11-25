@@ -9,8 +9,11 @@
  X                                                  
  X 
  X  Data do debito :
- X  Valor total :
- X  Nome do produto .......: Arroz Feijão
- X  Unidade do produto ....: [4]
- X  Preço ...............R$: 25.00
+ X  Valor total : 
+ X 
+ X  Nome do produto .......: 5
+ X  Preço ...............[R$: 5.00]
+ X  -----------------------------------
+ X  Nome do produto .......: 5
+ X  Preço ...............[R$: 5.00]
  X  -----------------------------------

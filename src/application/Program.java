@@ -11,22 +11,19 @@ import java.util.Scanner;
 //import entitites.Cliente;
 import entitites.Produtos;
 
-public class Program {
 
+public class Program {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
 		
 		String nomeProduto, continueAdicionar;
-		int amount;
 		double valor;
 		boolean adicionarMaisCompras;
-		
-		//char continueCompras;
-		
+				
 		//List<Cliente> dadosDoCliente = new ArrayList<>();
 		List<Produtos> listDeProdutos = new ArrayList<>();
-		
+				
 		System.out.print("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n"
 				+ "[               SETOR DE COMPRAS              ]\n"
 				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n"
@@ -34,25 +31,21 @@ public class Program {
 				+ "[---------------------------------------------]\n"
 				+ "[ Exemplo:                                    ]\n"
 				+ "[ Nome do Produto      :Produto X             ]\n"
-				+ "[ Quantidade           :X                     ]\n"
 				+ "[ Preço do Produto   R$:XX.XX                 ]\n"
 				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n");
 		
-		// Tudo dentro do try catch
-		
+		// Tudo dentro do try catch		
 		try{
 			do {
 				// Get de dados
 				System.out.printf("[ Nome do produto..: ");
 				nomeProduto = scanner.nextLine();
-				System.out.printf("[ Quantidade de.....[%s]   : x", nomeProduto);
-				amount = scanner.nextInt();
 				System.out.printf("[ Valor do produto..[%s] R$:", nomeProduto);
 				valor = scanner.nextDouble();
 				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");
 
 				// Adicionado produtos a lista genérica
-				Produtos produtos = new Produtos(nomeProduto, amount, valor);
+				Produtos produtos = new Produtos(nomeProduto, valor);
 				listDeProdutos.add(produtos);	
 				
 				// Estrutura de decisão para sair do loop de add lista de compras 
@@ -61,13 +54,11 @@ public class Program {
 				System.out.println("--------------------------------");
 				adicionarMaisCompras = continueAdicionar.equals("s") || continueAdicionar.equals("S")? true: false;
 				scanner.nextLine();
-				
+
 			}while(adicionarMaisCompras == true);
 			System.out.print("\nLista de compras finalizada.");
-
-			
-			
 			// Write no bloco de notas
+			
 			try {
 				BufferedWriter url = new BufferedWriter(new FileWriter("./Nota-Fiscal/Comprovante.txt"));
 				url.write(" X                                                  "
@@ -81,9 +72,9 @@ public class Program {
 						+ "\n X                                                  "                                             
 						+ "\n X ");
 
-				
 				url.write("\n X  Data do debito :\n X  Valor total : \n X ");
 				
+				//url.write (""+ carrinho);
 				/*for (Cliente x : dadosDoCliente) {
 					url.write(""+ x);
 				}*/
@@ -91,7 +82,6 @@ public class Program {
 				for (Produtos x : listDeProdutos) {
 					url.write(""+ x);
 				}
-	
 				
 			url.close();
 			} catch (IOException e) {
