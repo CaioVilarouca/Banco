@@ -19,7 +19,7 @@ public class Program {
 		
 		String nomeProduto, continueAdicionar;
 		int amount;
-		double valor,resultadoSum, valorProdutos = 0, valorFinal = 0;
+		double valor, valorProduto, valorFinal = 0;
 		boolean adicionarMaisCompras;
 				
 		//List<Cliente> dadosDoCliente = new ArrayList<>();
@@ -58,8 +58,9 @@ public class Program {
 				listDeProdutos.add(produtos);
 				
 				produtos.sum(amount, valor);
-				valorFinal = produtos.sum(amount, valor);
-				System.out.printf("[ Valor Final é ....[%s] R$:%.2f \n",nomeProduto, valor);
+				valorProduto = produtos.sum(amount, valor);
+				valorFinal  += produtos.sum(amount, valor);
+				System.out.printf("[ Valor Final é ....[%s] R$:%.2f \n",nomeProduto, valorProduto);
 
 				// Soma de quantidade mais o valor
 				/*produtos.sum(amount, valor);

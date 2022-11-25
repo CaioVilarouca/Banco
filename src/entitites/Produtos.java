@@ -4,6 +4,7 @@ public class Produtos{
 	private String nomeProduto;
 	private Integer amount;
 	private Double valor;
+	private Double valorFinal;
 
 	public Produtos(){
 		super();
@@ -39,13 +40,21 @@ public class Produtos{
 		this.valor = valor;
 	}
 	
-	public double printSum(int amount, double valor) {
-		return amount * valor;
+	public Double getValorFinal() {
+		return valorFinal;
 	}
-	
+
+	public void setValorFinal(Double valorFinal) {
+		this.valorFinal = valorFinal;
+	}
+
 	public double sum(int amount, double valor){
 		this.valor = amount * valor;
 		return amount * valor;
+	}
+	
+	public void sumFinal(double valorFinal) {
+		this.valorFinal += valorFinal;
 	}
 	
 	@Override

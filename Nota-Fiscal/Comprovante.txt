@@ -12,4 +12,8 @@
  X  Quantidade pedida .....: [x5]
  X  Preço .............. R$: 25.00
  X  -----------------------------------
- X  Valor do debito: R$[25.00]
+ X  Nome do produto .......: 2
+ X  Quantidade pedida .....: [x5]
+ X  Preço .............. R$: 10.00
+ X  -----------------------------------
+ X  Valor do debito: R$[35.00]
