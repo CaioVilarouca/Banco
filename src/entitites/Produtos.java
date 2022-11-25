@@ -4,17 +4,15 @@ public class Produtos{
 	private String nomeProduto;
 	private Integer amount;
 	private Double valor;
-	private Double valorFinal;
 
 	public Produtos(){
 		super();
 	}
 	
-	public Produtos(String nomeProduto, Integer amount, Double valor, Double valorFinal) {
+	public Produtos(String nomeProduto, Integer amount, Double valor) {
 		this.nomeProduto = nomeProduto;
 		this.amount = amount;
 		this.valor = valor;
-		this.valorFinal= valorFinal;
 	}
 
 	public String getNomeProduto() {
@@ -41,23 +39,19 @@ public class Produtos{
 		this.valor = valor;
 	}
 	
-	public Double getValorFinal() {
-		return valorFinal;
-	}
-
-	public void setValorFinal(Double valorFinal) {
-		this.valorFinal = valorFinal;
+	public double printSum(int amount, double valor) {
+		return amount * valor;
 	}
 	
-	public void printSum(int amount, double valor) {
-		this.valor = amount *  valor;
-		System.out.printf("[ Valor Final é ....[%s] R$:%.2f \n", nomeProduto, this.valor);
+	public double sum(int amount, double valor){
+		this.valor = amount * valor;
+		return amount * valor;
 	}
 	
 	@Override
 	public String toString() {
 		return String.format("\n X  Nome do produto .......: %s"
-				+ "\n X  Quantidade pedida .....: [%d]"
+				+ "\n X  Quantidade pedida .....: [x%d]"
 				+ "\n X  Preço .............. R$: %.2f"
 				+ "\n X  -----------------------------------", nomeProduto, amount, valor);
 	}

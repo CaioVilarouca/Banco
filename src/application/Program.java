@@ -19,7 +19,7 @@ public class Program {
 		
 		String nomeProduto, continueAdicionar;
 		int amount;
-		double valor, valorFinal = 0, resultadoSum;
+		double valor,resultadoSum, valorProdutos = 0, valorFinal = 0;
 		boolean adicionarMaisCompras;
 				
 		//List<Cliente> dadosDoCliente = new ArrayList<>();
@@ -37,20 +37,41 @@ public class Program {
 				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n");
 
 		// Tudo dentro do try catch		
-		try{
+		try{			
+
 			do {
 				// Get de dados
 				System.out.printf("[ Nome do produto..: ");
 				nomeProduto = scanner.nextLine();
+				/*	if (scanner.nextLine() != null ||  scanner.nextLine() == "") {
+				}else {
+					System.out.println("Nome do produto  ");
+					nomeProduto = scanner.nextLine();
+				}*/
 				System.out.printf("[ Quatidade ........[%s] : x", nomeProduto);
 				amount = scanner.nextInt();
 				System.out.printf("[ Valor do produto..[%s] R$:", nomeProduto);
 				valor = scanner.nextDouble();
 				
 				// Adicionado produtos a lista genérica
-				Produtos produtos = new Produtos(nomeProduto,amount ,valor, valorFinal);
+				Produtos produtos = new Produtos(nomeProduto, amount, valor);
 				listDeProdutos.add(produtos);
-				produtos.printSum(amount, valor);
+				
+				produtos.sum(amount, valor);
+				valorFinal = produtos.sum(amount, valor);
+				System.out.printf("[ Valor Final é ....[%s] R$:%.2f \n",nomeProduto, valor);
+
+				// Soma de quantidade mais o valor
+				/*produtos.sum(amount, valor);
+				valorProdutos = produtos.printSum(amount, valor);
+				if(valorFinal != 0.0) {
+					valorFinal += produtos.printSum(amount, valor);
+				}else {
+					valorFinal = produtos.printSum(amount, valor);
+				}*/
+								
+				//System.out.printf("[ Valor Final é ....[%s] R$:%.2f \n",nomeProduto, valorProdutos);
+
 				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");
 				
 				// Estrutura de decisão para sair do loop de add lista de compras 
@@ -77,18 +98,12 @@ public class Program {
 						+ "\n X                                                  "                                             
 						+ "\n X ");
 
-				url.write("\n X  Data do debito :\n X  Valor total : \n X ");
-				
-				//url.write (""+ carrinho);
-				/*for (Cliente x : dadosDoCliente) {
-					url.write(""+ x);
-				}*/
+
 				// estanciando objeto
 				for (Produtos x : listDeProdutos) {
 					url.write(""+ x);
 				}
-				
-				//url.write(String.format("\n X  Valor do debito: R$[%.2f]", resultadoSum));
+				url.write(String.format("\n X  Valor do debito: R$[%.2f]", valorFinal));
 				
 			url.close();
 			} catch (IOException e) {
