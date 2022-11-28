@@ -12,10 +12,10 @@
    <table>
      <tr>
        <td>
-         <img alt="login" height="50%" style="margin: 10px" src="https://github.com/CaioVilarouca/Nota-Fiscal/blob/main/Nota%20Fiscal.PNG"/> 
+         <img alt="login" height="50%" style="margin: 10px" src="https://github.com/CaioVilarouca/Nota-Fiscal/blob/main/Console.PNG"/> 
        </td>
        <td>
-         <img alt="login" height="50%" style="margin: 10px" src="https://github.com/CaioVilarouca/Nota-Fiscal/blob/main/Console.PNG"/> 
+         <img alt="login" height="50%" style="margin: 10px" src="https://github.com/CaioVilarouca/Nota-Fiscal/blob/main/bloco%20de%20notas.PNG"/> 
        </td>
      </tr>
    </table>
