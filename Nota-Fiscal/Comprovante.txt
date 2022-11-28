@@ -9,20 +9,24 @@
  X                                                  
  X                                                  
  X                      Pagador                     
- X 
- X  Nome.......: Caio Vinício Nunes Vilarouca
- X  CPF   .....: 1973158456
- X  Nome do produto .......: Arroz Doce
+ X                                                  
+ X   Nome: Caio Vilarouca                           
+ X   CPF : 197.346.285                              
+ X                                                  
+ X  Valor do debito :[R$163.40] 
+ X  Data do debito  :28/11/2022
+ X  
+ X  Nome do produto .......: Coca Cola
  X  Quantidade pedida .....: [x5]
- X  Preço .............. R$: 35.00
+ X  O valor total do(a) ...: R$: 25.00
  X  -----------------------------------
- X  Nome do produto .......: Coca cola
- X  Quantidade pedida .....: [x15]
- X  Preço .............. R$: 125.25
+ X  
+ X  Nome do produto .......: Sabão
+ X  Quantidade pedida .....: [x10]
+ X  O valor total do(a) ...: R$: 23.50
  X  -----------------------------------
- X  Nome do produto .......: Feijão Branco
- X  Quantidade pedida .....: [x3]
- X  Preço .............. R$: 39.27
+ X  
+ X  Nome do produto .......: Arroz Branco
+ X  Quantidade pedida .....: [x5]
+ X  O valor total do(a) ...: R$: 114.90
  X  -----------------------------------
- X  Data do debito :25/11/2022
- X  Valor do debito: R$199.52

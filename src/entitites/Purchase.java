@@ -36,6 +36,9 @@ public class Purchase {
 
 	@Override
 	public String toString() {
-		return "Purchase [amountPurchase=" + amountPurchase + ", product=" + product + "]";
+		return String.format("\n X  Nome do produto .......: %s"
+				+ "\n X  Quantidade pedida .....: [x%d]"
+				+ "\n X  O valor total do(a) ...: R$: %.2f"
+				+ "\n X  -----------------------------------",product.getNameProduct(), amountPurchase, getTotalValueOfProduct());
 	}
 }

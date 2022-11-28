@@ -1,10 +1,8 @@
 package application;
 
-//import java.io.BufferedWriter;
-//import java.io.FileWriter;
-//import java.io.IOException;
-//import java.text.SimpleDateFormat;
-//import java.util.Date;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -64,122 +62,43 @@ public class Program {
 				scanner.nextLine();
 				
 			}while(addMorePurchases == true);
-			System.out.println("	Lista de compras finalizada.");
-			System.out.println(shoppingCart.getValueTotalPurchase());
-			shoppingCart.listPurchase();
-	
+			System.out.println("\n	Lista de compras finalizada.");
+			System.out.printf("\nCompra deu total de [R$%.2f] \nData da compra :%s", shoppingCart.getValueTotalPurchase(), shoppingCart.datePerchase());
+			
+			// Write no bloco de notas
+			try {
+				BufferedWriter url = new BufferedWriter(new FileWriter("./Nota-Fiscal/Comprovante.txt"));
+				url.write(" X                                                  "
+					+ "\n X             BANK WILTON -- BRASÍLIA              "
+					+ "\n X                                                  "
+					+ "\n X      RECIBO DE PAGAMAENTO - CODIGO DE BARRAS     "
+				    + "\n X             PARA SIMPLES CONFERENCIA             "
+					+ "\n X                                                  "
+					+ "\n X   Agencia:0000  Terminal:0000  Conta:00000000-0  "
+					+ "\n X                Wilton Comprovante                "
+					+ "\n X                                                  "   
+					+ "\n X                                                  "                                             
+					+ "\n X                      Pagador                     "   
+					+ "\n X                                                  "                                             
+			        + "\n X   Nome: Caio Vilarouca                           "                                             
+					+ "\n X   CPF : 197.346.285                              "    
+					+ "\n X                                                  "                                             
+					+ "\n X ");
+				
+					url.write(String.format(" Valor do debito :[R$%.2f] \n X  Data do debito  :%s", shoppingCart.getValueTotalPurchase(), shoppingCart.datePerchase()));
+					
+					for (Purchase list : shoppingCart.getListPurchase()){
+						url.write("\n X  "+ list);
+					}
+					
+					url.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}	
 	}catch (Exception erroGeral) {
 		System.out.println("Dados inserido incorretamente!\nComprovante fiscal não foi gerado.");
 	}
-		scanner.close();
-		/*		CarrinhoCompras carrinhoCompras = new CarrinhoCompras();
-
-		for (int i = 1; i <= 3; i++) {
-			Produto produto = new Produto(20.0, "Carrinho");
-			Compra compra = new Compra(i, produto);
-			System.out.println(compra.getTotalCompra());
-			carrinhoCompras.adicionarCompra(compra);
-		}
-
-		carrinhoCompras.listarCompras();
-		System.out.println(carrinhoCompras.getValorTotal());
-*/
-		
-		
-		
-		//Locale.setDefault(Locale.US);
-		//
-		
-		/*String nomeProduto, todyPayDay, name;
-		char continueAdicionar, cpfNota;
-		int amount;
-		long cpf;
-		double valor, valorProduto, valorFinal = 0;
-		boolean adicionarMaisCompras;*/
-		
-		// Data do pagamento
-		/*Date data = new Date();
-		SimpleDateFormat  format = new SimpleDateFormat("dd/MM/yyyy");
-		todyPayDay = format.format(data);*/
-		
-		//List<Cliente> dadosDoCliente = new ArrayList<>();
-		//List<Produtos> listDeProdutos = new ArrayList<>();
-
-		// Tudo dentro do try catch		
-		//try{			
-
-			//do {
-				// Get de dados
-				/*System.out.printf("[ Nome do produto..: ");
-				nomeProduto = scanner.nextLine();
-				System.out.printf("[ Quatidade ........[%s] : x", nomeProduto);
-				amount = scanner.nextInt();
-				System.out.printf("[ Valor do produto..[%s] R$:", nomeProduto);
-				valor = scanner.nextDouble();*/
-				
-				// Adicionado produtos a lista genérica
-				/*Produtos produtos = new Produtos(nomeProduto, amount, valor);
-				listDeProdutos.add(produtos);*/
-				
-				// Soma de quantidade mais valor e atribuido numa var acomulativo
-				/*produtos.sum(amount, valor);
-				valorProduto = produtos.sum(amount, valor);
-				valorFinal  += produtos.sum(amount, valor);
-				System.out.printf("[ Valor Final é ....[%s] R$:%.2f \n",nomeProduto, valorProduto);
-				System.out.println("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]");*/
-				
-				// Estrutura de decisão para sair do loop de add lista de compras 
-				/*System.out.print("Adicionar mais compras [S|N] :");
-				continueAdicionar = scanner.next().charAt(0);
-				System.out.println("--------------------------------");
-				adicionarMaisCompras = continueAdicionar =='s' || continueAdicionar == 'S'? true: false;
-				scanner.nextLine();*/
-
-			//}while(adicionarMaisCompras == true);
-			//System.out.print("\n	Lista de compras finalizada.");
-			
-			// Dados do cliente
-			/*System.out.print("\nDigite seu nome completo :");
-			name = scanner.nextLine();
-			System.out.print("CPF na nota :");
-			cpf = scanner.nextLong();
-			Cliente cliente = new Cliente(name, cpf);
-			dadosDoCliente.add(cliente);*/
-			
-			// Write no bloco de notas
-			/*			try {
-				BufferedWriter url = new BufferedWriter(new FileWriter("./Nota-Fiscal/Comprovante.txt"));
-				url.write(" X                                                  "
-						+ "\n X             BANK WILTON -- BRASÍLIA              "
-						+ "\n X                                                  "
-						+ "\n X      RECIBO DE PAGAMAENTO - CODIGO DE BARRAS     "
-						+ "\n X             PARA SIMPLES CONFERENCIA             "
-						+ "\n X                                                  "
-						+ "\n X   Agencia:0000  Terminal:0000  Conta:00000000-0  "
-						+ "\n X                Wilton Comprovante                "
-						+ "\n X                                                  "   
-						+ "\n X                                                  "                                             
-						+ "\n X                      Pagador                     "                                             
-						+ "\n X ");
-				for (Cliente x : dadosDoCliente) {
-					url.write(""+ x);
-				}
-
-				for (Produtos x : listDeProdutos) {
-					url.write(""+ x);
-				}
-				url.write(String.format("\n X  Data do debito :%s\n X  Valor do debito: R$%.2f",todyPayDay, valorFinal));
-				
-			url.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}	
-		}catch (Exception erroGeral) {
-			System.out.println("Dados inserido incorretamente!\nComprovante fiscal não foi gerado.");
-		}
-		System.out.println("\n 	Volte Sempre! "+ todyPayDay);
-		System.out.println(" Fim do programa. ");
-		scanner.close();*/
+	scanner.close();
 	}
 	 // Desenvolvedor Caio Vilarouca
 }
