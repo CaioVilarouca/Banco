@@ -21,14 +21,7 @@ public class ShoppingCart {
 		listPurchase.add(purchase);
 	}
 	
-	public String getDate() {
-		return dayOfPagamento;
-	}
-
-	public void setDate(String dayOfPagamento) {
-		this.dayOfPagamento = dayOfPagamento;
-	}
-	
+	// Data do pagamento
 	public String datePerchase() {
 		Date date = new Date();
 		SimpleDateFormat formatData = new SimpleDateFormat("dd/MM/yyyy");
@@ -36,6 +29,7 @@ public class ShoppingCart {
 		return dayOfPagamento;
 	}
 	
+	// Valor final das compras 
 	public Double getValueTotalPurchase() {
 		double valueTotal = 0;
 		for (Purchase purchase : listPurchase) {
