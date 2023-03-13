@@ -8,12 +8,6 @@ public class Product{
 		super();
 	}
 
-	public Product(String nameProduct, Double valueProduct) {
-		super();
-		this.nameProduct = nameProduct;
-		this.valueProduct = valueProduct;
-	}
-
 	public String getNameProduct() {
 		return nameProduct;
 	}
