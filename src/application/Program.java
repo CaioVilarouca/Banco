@@ -1,6 +1,6 @@
 package application;
 
-import java.io.BufferedWriter;
+/*import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Locale;
@@ -8,12 +8,13 @@ import java.util.Scanner;
 
 import entitites.Product;
 import entitites.Purchase;
-import entitites.ShoppingCart;
+import entitites.ShoppingCart;*/
 
 
 public class Program {
 	public static void main(String[] args) {
-		Locale.setDefault(Locale.US);
+		UI ui = new UI();
+		/*Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
 		
 		ShoppingCart shoppingCart = new ShoppingCart();
@@ -23,8 +24,8 @@ public class Program {
 		double valueProduct, getTotalValueOfProduct;
 		boolean addMorePurchases;
 		char continueAdd;
-		
-		System.out.print("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n"
+		*/
+		/*	System.out.print("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n"
 				+ "[               SETOR DE COMPRAS              ]\n"
 				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n"
 				+ "[ Comprovante fiscal                          ]\n"
@@ -33,9 +34,10 @@ public class Program {
 				+ "[ Nome do Produto      : Produto X            ]\n"
 				+ "[ Preço do Produto   R$: XX.XX                ]\n"
 				+ "[ Quantidade do produto: xX                   ]\n"
-				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n");
+				+ "[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n");*/
 		
-		try{			
+		
+		/*try{			
 			do {
 				// Get de produtos
 				System.out.printf("[ Nome do produto....: ");
@@ -99,6 +101,7 @@ public class Program {
 		System.out.println("Dados inserido incorretamente!\nComprovante fiscal não foi gerado.");
 	}
 	scanner.close();
-	}
+	*/
 	 // Desenvolvedor Caio Vilarouca
+	}
 }
