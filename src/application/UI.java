@@ -2,6 +2,7 @@ package application;
 
 import java.util.Scanner;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import entitites.Product;
@@ -10,12 +11,14 @@ public class UI {
 	Scanner scanner = new Scanner(System.in);
 
 	String[] menu = { "Adicionar produto", "Valor total", "Sair" };
-	int option;
+	int option, optionVerification;
 	double valueProduct;
+	boolean verification;
 
-	public void systemUI(){
-		option = JOptionPane.showOptionDialog(null, "Menu de opções", "Menu", JOptionPane.DEFAULT_OPTION, 3, null, menu, menu[0]);
-		
+	public void systemUI() {
+		option = JOptionPane.showOptionDialog(null, "Menu de opções", "Menu", JOptionPane.DEFAULT_OPTION, 3, null, menu,
+				menu[0]);
+
 		switch (option) {
 		case 0:
 			systemAddProduct();
@@ -30,97 +33,91 @@ public class UI {
 	}
 
 	public void systemAddProduct() {
-		try {
+		do {
+			
 			Product product = new Product();
-			product.setNameProduct(JOptionPane.showInputDialog(null, "Nome do Produto :", "Carrinho",3));
-			product.setValueProduct(valueProduct = Double.parseDouble((String) JOptionPane.showInputDialog(null, "Valor do produto R$", "Preço", 3)));
-
-		}catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "Erro, 404", "ERRO", 0, null);
-		}
+			product.setNameProduct(JOptionPane.showInputDialog(null, "Nome do Produto :", "Carrinho", 3));
+			try {
+				product.setValueProduct(valueProduct = Double
+						.parseDouble((String) JOptionPane.showInputDialog(null, "Valor do produto R$", "Preço", 3)));
+			} catch (Exception e) {
+				// TODO: handle exception
+				JOptionPane.showMessageDialog(null, "Esse campo só aceita números.", "ERRO", 0, null);
+			}
+			
+			// Verificação
+			optionVerification = JOptionPane.showConfirmDialog(null, "Adicionar mais produtos ?", "Sair", 0);
+			verification = optionVerification == 0 ? true : false;
+		} while (true == verification);
 	}
 }
 
+/*
+ * Locale.setDefault(Locale.US); Scanner scanner = new Scanner(System.in);
+ * 
+ * ShoppingCart shoppingCart = new ShoppingCart();
+ * 
+ * String nameProduct; int amountPurchase; double valueProduct,
+ * getTotalValueOfProduct; boolean addMorePurchases; char continueAdd;
+ */
 
-/*Locale.setDefault(Locale.US);
-Scanner scanner = new Scanner(System.in);
-
-ShoppingCart shoppingCart = new ShoppingCart();
-
-String nameProduct;
-int amountPurchase;
-double valueProduct, getTotalValueOfProduct;
-boolean addMorePurchases;
-char continueAdd;
-*/
-
-
-
-/*try{			
-	do {
-		// Get de produtos
-		System.out.printf("[ Nome do produto....: ");
-		nameProduct = scanner.nextLine();
-		System.out.printf("[ Valor do produto....[%s] R$:", nameProduct);
-		valueProduct = scanner.nextDouble();
-		
-		// Add produtos
-		Product product = new Product(nameProduct, valueProduct);
-		System.out.printf("[ Quatidade produto...[%s] : x", nameProduct);
-		amountPurchase = scanner.nextInt();
-		
-		// Add produtos mais quantidades
-		Purchase purchase = new Purchase (amountPurchase, product);		
-		getTotalValueOfProduct = purchase.getTotalValueOfProduct();
-		System.out.printf("[ O valor total do(a).[%s] R$%.2f \n", nameProduct,getTotalValueOfProduct);
-		System.out.print("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n");
-		// Add na compras no carrinho
-		shoppingCart.addPurchase(purchase);
-		
-		// Estrutura de decisão para sair do loop de add lista de compras 
-		System.out.print("Adicionar mais compras [S|N] :");
-		continueAdd = scanner.next().charAt(0);
-		System.out.println("--------------------------------");
-		addMorePurchases = continueAdd =='s' || continueAdd == 'S'? true: false;
-		scanner.nextLine();
-		
-	}while(addMorePurchases == true);
-	System.out.println("\n	Lista de compras finalizada.");
-	System.out.printf("\nCompra deu total de [R$%.2f] \nData da compra :%s", shoppingCart.getValueTotalPurchase(), shoppingCart.datePerchase());
-	
-	// Write no bloco de notas
-	try {
-		BufferedWriter url = new BufferedWriter(new FileWriter("./Nota-Fiscal/Comprovante.txt"));
-		url.write(" X                                                  "
-			+ "\n X             BANK WILTON -- BRASÍLIA              "
-			+ "\n X                                                  "
-			+ "\n X      RECIBO DE PAGAMAENTO - CODIGO DE BARRAS     "
-		    + "\n X             PARA SIMPLES CONFERENCIA             "
-			+ "\n X                                                  "
-			+ "\n X   Agencia:0000  Terminal:0000  Conta:00000000-0  "
-			+ "\n X                Wilton Comprovante                "
-			+ "\n X                                                  "   
-			+ "\n X                                                  "                                             
-			+ "\n X                      Pagador                     "   
-			+ "\n X                                                  "                                             
-	        + "\n X   Nome: Caio Vilarouca                           "                                             
-			+ "\n X   CPF : 197.346.285                              "    
-			+ "\n X                                                  "                                             
-			+ "\n X ");
-		
-			url.write(String.format(" Valor do debito :[R$%.2f] \n X  Data do debito  :%s", shoppingCart.getValueTotalPurchase(), shoppingCart.datePerchase()));
-			
-			for (Purchase list : shoppingCart.getListPurchase()){
-				url.write("\n X  "+ list);
-			}
-			
-			url.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}	
-}catch (Exception erroGeral) {
-System.out.println("Dados inserido incorretamente!\nComprovante fiscal não foi gerado.");
-}
-scanner.close();
-*/
+/*
+ * try{ do { // Get de produtos System.out.printf("[ Nome do produto....: ");
+ * nameProduct = scanner.nextLine();
+ * System.out.printf("[ Valor do produto....[%s] R$:", nameProduct);
+ * valueProduct = scanner.nextDouble();
+ * 
+ * // Add produtos Product product = new Product(nameProduct, valueProduct);
+ * System.out.printf("[ Quatidade produto...[%s] : x", nameProduct);
+ * amountPurchase = scanner.nextInt();
+ * 
+ * // Add produtos mais quantidades Purchase purchase = new Purchase
+ * (amountPurchase, product); getTotalValueOfProduct =
+ * purchase.getTotalValueOfProduct();
+ * System.out.printf("[ O valor total do(a).[%s] R$%.2f \n",
+ * nameProduct,getTotalValueOfProduct);
+ * System.out.print("[-=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=-]\n"); // Add
+ * na compras no carrinho shoppingCart.addPurchase(purchase);
+ * 
+ * // Estrutura de decisão para sair do loop de add lista de compras
+ * System.out.print("Adicionar mais compras [S|N] :"); continueAdd =
+ * scanner.next().charAt(0);
+ * System.out.println("--------------------------------"); addMorePurchases =
+ * continueAdd =='s' || continueAdd == 'S'? true: false; scanner.nextLine();
+ * 
+ * }while(addMorePurchases == true);
+ * System.out.println("\n	Lista de compras finalizada.");
+ * System.out.printf("\nCompra deu total de [R$%.2f] \nData da compra :%s",
+ * shoppingCart.getValueTotalPurchase(), shoppingCart.datePerchase());
+ * 
+ * // Write no bloco de notas try { BufferedWriter url = new BufferedWriter(new
+ * FileWriter("./Nota-Fiscal/Comprovante.txt"));
+ * url.write(" X                                                  " +
+ * "\n X             BANK WILTON -- BRASÍLIA              " +
+ * "\n X                                                  " +
+ * "\n X      RECIBO DE PAGAMAENTO - CODIGO DE BARRAS     " +
+ * "\n X             PARA SIMPLES CONFERENCIA             " +
+ * "\n X                                                  " +
+ * "\n X   Agencia:0000  Terminal:0000  Conta:00000000-0  " +
+ * "\n X                Wilton Comprovante                " +
+ * "\n X                                                  " +
+ * "\n X                                                  " +
+ * "\n X                      Pagador                     " +
+ * "\n X                                                  " +
+ * "\n X   Nome: Caio Vilarouca                           " +
+ * "\n X   CPF : 197.346.285                              " +
+ * "\n X                                                  " + "\n X ");
+ * 
+ * url.write(String.
+ * format(" Valor do debito :[R$%.2f] \n X  Data do debito  :%s",
+ * shoppingCart.getValueTotalPurchase(), shoppingCart.datePerchase()));
+ * 
+ * for (Purchase list : shoppingCart.getListPurchase()){ url.write("\n X  "+
+ * list); }
+ * 
+ * url.close(); } catch (IOException e) { e.printStackTrace(); } }catch
+ * (Exception erroGeral) { System.out.
+ * println("Dados inserido incorretamente!\nComprovante fiscal não foi gerado."
+ * ); } scanner.close();
+ */
 // Desenvolvedor Caio Vilarouca
