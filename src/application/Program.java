@@ -14,6 +14,7 @@ import entitites.ShoppingCart;*/
 public class Program {
 	public static void main(String[] args) {
 		UI ui = new UI();
+		ui.systemUI();
 		/*Locale.setDefault(Locale.US);
 		Scanner scanner = new Scanner(System.in);
 		
