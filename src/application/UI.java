@@ -21,7 +21,7 @@ public class UI {
 
 	public void systemUI() {
 		do {
-			option = JOptionPane.showOptionDialog(null, "Menu de opções", "Menu", JOptionPane.DEFAULT_OPTION, 3, null,
+			option = JOptionPane.showOptionDialog(null, "Menu de opções", "Menu "+ shoppingCart.datePerchase()+ "", JOptionPane.DEFAULT_OPTION, 3, null,
 					menu, menu[0]);
 
 			switch (option) {
@@ -68,27 +68,28 @@ public class UI {
 			verification = optionVerification == 0 ? true : false;
 		} while (true == verification);
 		valueTotalCart();
+		WriteCart();
 	}
 
 	public void valueTotalCart() {
 		// Valor final do carrinho
 		JOptionPane.showMessageDialog(null, "Valor final R$:[" + shoppingCart.getValueTotalPurchase() + "]",
-				"Valor final", 1);
+				"Valor final "+ shoppingCart.datePerchase()+"", 1);
 	}
 
 	public void WriteCart() {
 		// Print no bloco de notas
 		try {
 			BufferedWriter url = new BufferedWriter(new FileWriter("./Nota-Fiscal/Comprovante.txt"));
-			url.write(String.format(" Valor do debito :[R$%.2f] \n X  Data do debito  :%s", shoppingCart.getValueTotalPurchase(), shoppingCart.datePerchase()));
-			
-			for (Purchase list : shoppingCart.getListPurchase()){
-				url.write("\n X  "+ list);
+			url.write(String.format(" X  Valor do debito :[R$%.2f] \n X  Data do debito  :%s",
+					shoppingCart.getValueTotalPurchase(), shoppingCart.datePerchase()));
+
+			for (Purchase list : shoppingCart.getListPurchase()) {
+				url.write("\n X  " + list);
 			}
-			
-			url.close();			
-		url.close();
-			
+
+			url.close();
+
 		} catch (Exception e) {
 		}
 	}
