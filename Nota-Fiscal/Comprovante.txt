@@ -1,7 +1,7 @@
- X  Valor do debito :[R$225,00] 
+ X  Valor do debito :[R$42,50] 
  X  Data do debito  :13/03/2023
  X  
- X  Nome do produto .......: Coca
+ X  Nome do produto .......: Coca cola
  X  Quantidade pedida .....: [x5]
- X  O valor total do(a) ...: R$: 225,00
+ X  O valor total do(a) ...: R$: 42,50
  X  -----------------------------------

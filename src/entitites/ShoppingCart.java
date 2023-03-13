@@ -13,10 +13,6 @@ public class ShoppingCart {
 		return listPurchase;
 	}
 
-	public void setListPurchase(List<Purchase> listPurchase) {
-		this.listPurchase = listPurchase;
-	}
-
 	public void addPurchase(Purchase purchase) {
 		listPurchase.add(purchase);
 	}

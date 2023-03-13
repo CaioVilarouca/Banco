@@ -15,14 +15,14 @@ public class UI {
 	ShoppingCart shoppingCart = new ShoppingCart();
 
 	String[] menu = { "Adicionar produto", "Valor total", "Sair" };
-	int option, optionVerification, amountPurchase;
+	int option, optionVerification, amountPurchase, optionVerificationExit;
 	double valueProduct, getTotalValueOfProduct;
-	boolean verification;
+	boolean verification, verificationExit = true;
 
 	public void systemUI() {
 		do {
-			option = JOptionPane.showOptionDialog(null, "Menu de opções", "Menu "+ shoppingCart.datePerchase()+ "", JOptionPane.DEFAULT_OPTION, 3, null,
-					menu, menu[0]);
+			option = JOptionPane.showOptionDialog(null, "Menu de opções", "Menu " + shoppingCart.datePerchase() + "",
+					JOptionPane.DEFAULT_OPTION, 3, null, menu, menu[0]);
 
 			switch (option) {
 			case 0:
@@ -32,9 +32,11 @@ public class UI {
 				valueTotalCart();
 				break;
 			default:
+				optionVerificationExit = JOptionPane.showConfirmDialog(null, "Sair da Carrinho ?", "Sair", 0);
+				verificationExit = optionVerificationExit == 1 ? true : false;
 				break;
 			}
-		} while (true);
+		} while (true == verificationExit);
 	}
 
 	public void systemAddProduct() {
@@ -52,6 +54,7 @@ public class UI {
 			} catch (Exception e) {
 				// TODO: handle exception
 				JOptionPane.showMessageDialog(null, "Esse campo só aceita números.", "ERRO", 0, null);
+				break;
 			}
 
 			// Add no carrinho
@@ -73,8 +76,13 @@ public class UI {
 
 	public void valueTotalCart() {
 		// Valor final do carrinho
-		JOptionPane.showMessageDialog(null, "Valor final R$:[" + shoppingCart.getValueTotalPurchase() + "]",
-				"Valor final "+ shoppingCart.datePerchase()+"", 1);
+		if (shoppingCart.getValueTotalPurchase() == 0) {
+			JOptionPane.showMessageDialog(null, "Carrinho esta vazio!", "Carrinho", 2);
+		} else {
+			JOptionPane.showMessageDialog(null, "Valor final R$:[" + shoppingCart.getValueTotalPurchase() + "]",
+					"Valor final " + shoppingCart.datePerchase() + "", 1);
+		}
+
 	}
 
 	public void WriteCart() {
