@@ -14,10 +14,10 @@ public class UI {
 	Scanner scanner = new Scanner(System.in);
 	ShoppingCart shoppingCart = new ShoppingCart();
 
-	String[] menu = { "Adicionar produto", "Valor total", "Sair" };
-	int option, optionVerification, amountPurchase, optionVerificationExit;
-	double valueProduct, getTotalValueOfProduct;
-	boolean verification, verificationExit = true;
+	private String[] menu = { "Adicionar produto", "Valor total", "Sair" };
+	private int option, optionVerification, amountPurchase, optionVerificationExit;
+	protected double valueProduct, getTotalValueOfProduct;
+	private boolean verification, verificationExit = true;
 
 	public void systemUI() {
 		do {
@@ -29,14 +29,14 @@ public class UI {
 				systemAddProduct();
 				break;
 			case 1:
-				valueTotalCart();
+				valueTotallyCart();
 				break;
 			default:
 				optionVerificationExit = JOptionPane.showConfirmDialog(null, "Sair da Carrinho ?", "Sair", 0);
 				verificationExit = optionVerificationExit == 1 ? true : false;
 				break;
 			}
-		} while (true == verificationExit);
+		} while (verificationExit);
 	}
 
 	public void systemAddProduct() {
@@ -69,17 +69,17 @@ public class UI {
 			// Verificação
 			optionVerification = JOptionPane.showConfirmDialog(null, "Adicionar mais produtos ?", "Sair", 0);
 			verification = optionVerification == 0 ? true : false;
-		} while (true == verification);
-		valueTotalCart();
+		} while (verification);
+		valueTotallyCart();
 		WriteCart();
 	}
 
-	public void valueTotalCart() {
+	public void valueTotallyCart() {
 		// Valor final do carrinho
-		if (shoppingCart.getValueTotalPurchase() == 0) {
+		if (shoppingCart.getValueTotallyPurchase() == 0) {
 			JOptionPane.showMessageDialog(null, "Carrinho esta vazio!", "Carrinho", 2);
 		} else {
-			JOptionPane.showMessageDialog(null, "Valor final R$:[" + shoppingCart.getValueTotalPurchase() + "]",
+			JOptionPane.showMessageDialog(null, "Valor final R$:[" + shoppingCart.getValueTotallyPurchase() + "]",
 					"Valor final " + shoppingCart.datePerchase() + "", 1);
 		}
 
@@ -90,7 +90,7 @@ public class UI {
 		try {
 			BufferedWriter url = new BufferedWriter(new FileWriter("./Nota-Fiscal/Comprovante.txt"));
 			url.write(String.format(" X  Valor do debito :[R$%.2f] \n X  Data do debito  :%s",
-					shoppingCart.getValueTotalPurchase(), shoppingCart.datePerchase()));
+					shoppingCart.getValueTotallyPurchase(), shoppingCart.datePerchase()));
 
 			for (Purchase list : shoppingCart.getListPurchase()) {
 				url.write("\n X  " + list);
@@ -99,6 +99,7 @@ public class UI {
 			url.close();
 
 		} catch (Exception e) {
+			
 		}
 	}
 }

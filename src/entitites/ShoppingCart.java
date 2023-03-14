@@ -26,7 +26,7 @@ public class ShoppingCart {
 	}
 	
 	// Valor final das compras 
-	public Double getValueTotalPurchase() {
+	public Double getValueTotallyPurchase() {
 		double valueTotal = 0;
 		for (Purchase purchase : listPurchase) {
 			valueTotal+= purchase.getTotalValueOfProduct();
